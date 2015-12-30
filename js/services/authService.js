@@ -10,7 +10,7 @@ app.service('auth', ['$http', '$state', function ($http, $state) {
             .then(function (response) {
                 if (response.data == 'authorized') {
                     console.log('you\'re logged in');
-                    $state.go('main');
+                    $state.go('main.dashboard');
                 } else {
                     console.log('move away scum');
                     $state.go('auth');
@@ -25,7 +25,7 @@ app.service('auth', ['$http', '$state', function ($http, $state) {
                     error.login = response.data;
                 } else {
                     localStorage['token'] = response.data;
-                    $state.go('main');
+                    $state.go('main.dashboard');
                 }
             }, function (error) {
                 console.error(error);

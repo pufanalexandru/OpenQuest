@@ -9,9 +9,30 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         })
 
         .state('main', {
+            abstract: true,
             url: '/main',
             templateUrl: 'views/main.html',
             controller: 'mainCtrl'
+        })
+
+        .state('main.dashboard', {
+            url: '/dashboard',
+            templateUrl: 'views/dashboard.html'
+        })
+
+        .state('main.quests', {
+            url: '/quests',
+            templateUrl: 'views/quests.html'
+        })
+
+        .state('main.adventures', {
+            url: '/adventures',
+            templateUrl: 'views/adventures.html'
+        })
+
+        .state('main.settings', {
+            url: '/settings',
+            templateUrl: 'views/settings.html'
         });
         
     $urlRouterProvider.otherwise('/');
