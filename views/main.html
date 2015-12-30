@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2 col-sm-2 col-xs-1">
+            <div class="sidebar">
+                <ul>
+                    <li><i class="fa fa-home"></i>Dashboard</li>
+                    <li><i class="fa fa-flag"></i>Quests</li>
+                    <li><i class="fa fa-fort-awesome"></i>Adventures</li>
+                    <li data-toggle="collapse" data-target="#collapseMenu">
+                        <i class="fa fa-plus"></i>Create...</a><i class="fa fa-caret-down"></i>
+                    </li>
+                    <ul class="collapse" id="collapseMenu">
+                        <li>quest</li>
+                        <li>adventure</li>
+                        <li>category</li>
+                    </ul>
+                    <li><i class="fa fa-wrench"></i>Settings</li>
+                    <li ng-click="logout()"><i class="fa fa-sign-out"></i>Logout</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col md-10 col-sm-12 col-xs-12">
+            <div class="page-head">
+                <i class="fa fa-home"></i>Dashboard
+                <a class="show-menu" data-toggle="collapse" data-target="#menu"><i class="fa fa-bars"></i></a>
+                <ul id="menu" class="collapse">
+                    <li><i class="fa fa-home"></i>Dashboard</li>
+                    <li><i class="fa fa-flag"></i>Quests</li>
+                    <li><i class="fa fa-fort-awesome"></i>Adventures</li>
+                    <hr>
+                    <li><i class="fa fa-plus"></i>Create quest</li>
+                    <li><i class="fa fa-plus"></i>Create adventure</li>
+                    <li><i class="fa fa-plus"></i>Create category</li>
+                    <hr>
+                    <li><i class="fa fa-wrench"></i>Settings</li>
+                    <li ng-click="logout()"><i class="fa fa-sign-out"></i>Logout</li>
+                </ul>
+            </div>
+            <div class="main">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore dignissimos, vero doloribus sed quos nesciunt minus error aspernatur, quia nemo aperiam qui blanditiis debitis. Eveniet eligendi saepe asperiores cumque, nulla.
+            </div>
+        </div>
+    </div>
+</div>
