@@ -1,0 +1,16 @@
+ <div class="page-head">
+    <i class="fa {{icon}}"></i>{{title}}
+    <a class="show-menu" data-toggle="collapse" data-target="#menu"><i class="fa fa-bars"></i></a>
+    <ul id="menu" class="collapse">
+        <li ui-sref="main.dashboard"><i class="fa fa-home"></i>Dashboard</li>
+        <li ui-sref="main.quests"><i class="fa fa-flag"></i>Quests</li>
+        <li ui-sref="main.adventures"><i class="fa fa-fort-awesome"></i>Adventures</li>
+        <hr>
+        <li><i class="fa fa-plus"></i>Create quest</li>
+        <li><i class="fa fa-plus"></i>Create adventure</li>
+        <li><i class="fa fa-plus"></i>Create category</li>
+        <hr>
+        <li ui-sref="main.settings"><i class="fa fa-wrench"></i>Settings</li>
+        <li ng-click="logout()"><i class="fa fa-sign-out"></i>Logout</li>
+    </ul>
+</div>
