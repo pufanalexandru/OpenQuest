@@ -1,3 +1,12 @@
+CREATE TABLE `quests` (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id INT(6) NOT NULL,
+    name VARCHAR(64) NOT NULL,
+    description TEXT,
+    category VARCHAR(64),
+    deadline TIMESTAMP  
+);
+-------------------------------------------
 ALTER TABLE `users` ADD `confirm` VARCHAR(64) NOT NULL;
 
 DROP TABLE `confirm`;

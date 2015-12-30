@@ -29,6 +29,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/adventures',
             templateUrl: 'views/adventures.html'
         })
+        
+        .state('main.questCreation', {
+            url: '/questCreation',
+            templateUrl: 'views/questCreation.html',
+            controller: 'questCreationCtrl'
+        })
+        
+        .state('main.adventureCreation', {
+            url: '/adventureCreation',
+            templateUrl: 'views/adventureCreation.html'
+        })
 
         .state('main.settings', {
             url: '/settings',

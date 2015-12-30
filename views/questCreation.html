@@ -1,0 +1,44 @@
+<oq-navbar title="Create new quest" icon="fa-plus"></oq-navbar>
+<div class="main">
+    <form class="form-horizontal" ng-submit="createQuest()">
+        <div class="form-group creation">
+            <label class="col-md-2 control-label" for="name">Name: </label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <label class="col-md-2 control-label" for="description">Description: </label>
+            <div class="col-md-10">
+               <textarea name="description" id="description" rows="5" class="form-control"></textarea>
+            </div>
+            <label class="col-md-2 control-label" for="category">Category: </label>
+            <div class="col-md-3">
+                <select name="category" id="category" class="form-control">
+                    <option value="">Select one</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                </select>
+            </div>
+            <label class="col-md-2 control-label" for="categoryCreation">or create one: </label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="categoryCreation" name="categoryCreation"  placeholder="category name" required>
+            </div>
+            <div class="col-md-2">
+                <input type="text" class="form-control colorPicker" placeholder="select a color">
+            </div>
+            <label class="col-md-2 control-label" for="deadline">Deadline: </label>
+            <div class="col-md-10">
+                <div class="input-group date" id="datetimepicker">
+                    <input type="text" class="form-control">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-11 col-md-offset-1">
+                <button type="submit" class="btn btn-default btn-lg btn-block">Create quest</button>
+            </div>
+        </div>
+    </form>
+</div>

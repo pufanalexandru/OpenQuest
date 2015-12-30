@@ -139,7 +139,7 @@ ul {
     background: #F5BE73;
 }
 
-.sidebar li.active {
+.sidebar li.active, #collapseMenu li.active {
     background: rgba(0,0,0,0.6);
     color: #FFF;
 }
@@ -171,6 +171,7 @@ ul {
     padding: 10px 0 0 40px;
     position: fixed;
     width: 100%;
+    z-index: 999;
 }
 
 .page-head i {
@@ -200,11 +201,21 @@ ul {
     margin: 70px 0 0 240px;
 }
 
+/* CREATION */
+.creation div {
+    margin-bottom: 20px;
+}
+
+.creation  {
+    padding: 15px 100px 15px 70px;
+}
+
 /*  MEDIA QUERIES */
 /* for sidebar and content */
 @media (max-width: 767px) {
     .col-sm-2 { display: none; }
     .main { margin-left: 0; }
-    .page-head {margin-left: -15px; }
-    .show-menu {display: inline; }
+    .page-head { margin-left: -15px; }
+    .show-menu { display: inline; }
+    .creation { padding: 0; }
 }
