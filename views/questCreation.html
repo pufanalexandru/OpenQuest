@@ -4,11 +4,11 @@
         <div class="form-group creation">
             <label class="col-md-2 control-label" for="name">Name</label>
             <div class="col-md-10">
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control" id="name" name="name" placeholder="name of your quest" required>
             </div>
             <label class="col-md-2 control-label" for="description">Description</label>
             <div class="col-md-10">
-               <textarea name="description" id="description" rows="5" class="form-control"></textarea>
+               <textarea name="description" id="description" rows="5" class="form-control" placeholder="what's this quest about..."></textarea>
             </div>
             <label class="col-md-2 control-label" for="category">Category</label>
             <div class="col-md-3">
@@ -25,12 +25,12 @@
                 <input type="text" class="form-control" id="categoryCreation" name="categoryCreation"  placeholder="category name" required>
             </div>
             <div class="col-md-2">
-                <input type="text" class="form-control colorPicker" placeholder="select a color">
+                <input type="text" class="form-control colorPicker" placeholder="and color">
             </div>
             <label class="col-md-2 control-label" for="deadline">Deadline</label>
             <div class="col-md-10">
                 <div class="input-group date" id="datetimepicker">
-                    <input type="text" class="form-control">
+                    <input type="text" ng-model="quest.deadline" class="form-control" placeholder="this is optional">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
