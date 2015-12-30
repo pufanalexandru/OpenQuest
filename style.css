@@ -210,6 +210,10 @@ ul {
     padding: 15px 100px 15px 70px;
 }
 
+.bootstrap-datetimepicker-widget a {
+    color: #000;
+}
+
 /*  MEDIA QUERIES */
 /* for sidebar and content */
 @media (max-width: 767px) {
