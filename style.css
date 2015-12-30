@@ -34,8 +34,10 @@ ul {
 }
 
 .btn-default:hover {
-    border-color: #0C99D5;
-    background:  #0C99D5;
+    border-color: #0D5091;
+    border-top-color: #0B9BD3;
+    background: -moz-linear-gradient(top, #0B9BD3, #0D5091);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #0B9BD3), color-stop(1.0, #0D5091));
     color: #FFF;
 }
 
@@ -136,8 +138,9 @@ ul {
     padding: 15px 25px;
 }
 
-.sidebar li:hover {
-    background: #0C99D5;
+.sidebar li:hover, .sidebar .collapse li:hover {
+    background: -moz-linear-gradient(top, #0B9BD3, #0D5091);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #0B9BD3), color-stop(1.0, #0D5091));
     color: #FFF;
 }
 
@@ -158,10 +161,6 @@ ul {
 .sidebar .collapse li, .sidebar .collapsing li {
     background: rgba(0,0,0,0);
     font-size: 0.9em;
-}
-
-.sidebar .collapse li:hover {
-     background: #0C99D5;
 }
 
 /* navbar */
