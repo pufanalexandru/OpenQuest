@@ -11,12 +11,12 @@ h1, h2, h3, h4, .btn-default {
 }
 
 a {
-    color: #F5BE73;
+    color: #7ABCE6;
     cursor: pointer;
 }
 
 a:hover {
-    color: #F5BE73;
+    color: #7ABCE6;
     text-decoration: underline;
 }
 
@@ -29,13 +29,14 @@ ul {
     background: rgba(0,0,0,0);
     border: 1px solid #000;
     border-radius: 0;
-    box-shadow: 2px 0px 2px #808080;
+    box-shadow: 2px 0px 2px #000;
     transition: all 1s;
 }
 
 .btn-default:hover {
-    border-color: #F5BE73;
-    background:  #F5BE73;
+    border-color: #0C99D5;
+    background:  #0C99D5;
+    color: #FFF;
 }
 
 .btn-dark {
@@ -136,7 +137,8 @@ ul {
 }
 
 .sidebar li:hover {
-    background: #F5BE73;
+    background: #0C99D5;
+    color: #FFF;
 }
 
 .sidebar li.active, #collapseMenu li.active {
@@ -159,7 +161,7 @@ ul {
 }
 
 .sidebar .collapse li:hover {
-     background: #F2F2F2;
+     background: #0C99D5;
 }
 
 /* navbar */
