@@ -36,6 +36,19 @@
                     </span>
                 </div>
             </div>
+            <label class="col-md-2 control-label">In adventure?</label>
+            <div class="col-md-2">
+                <input id="adventure" type="checkbox" ng-click="toggleAdventures()">
+            </div>
+            <label for="selectAdventure" class="col-md-3 control-label animate-if" ng-if="quest.hasAdventure">select adventure</label>
+            <div class="col-md-5 animate-if" ng-if="quest.hasAdventure">
+                <select name="selectAdventure" id="selectAdventure" class="form-control">
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                </select>
+            </div>            
             <div class="col-md-11 col-md-offset-1">
                 <button type="submit" class="btn btn-default btn-lg btn-block">Create quest</button>
             </div>
