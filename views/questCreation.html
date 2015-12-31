@@ -1,39 +1,70 @@
 <oq-navbar title="Create new quest" icon="fa-plus"></oq-navbar>
 <div class="main">
-    <form class="form-horizontal" ng-submit="createQuest()">
+    <form class="form-horizontal" ng-submit="createQuest()" name="questCreation">
         <div class="form-group creation">
             <label class="col-md-2 control-label" for="name">Name</label>
             <div class="col-md-10">
-                <input type="text" class="form-control" id="name" name="name" placeholder="name of your quest" ng-model="quest.name" required>
+                <input 
+                    class="form-control" 
+                    id="name" 
+                    name="name" 
+                    ng-model="quest.name" 
+                    placeholder="name of your quest" 
+                    required
+                    type="text"> 
             </div>
             
             <label class="col-md-2 control-label" for="description">Description</label>
             <div class="col-md-10">
-               <textarea name="description" id="description" rows="5" class="form-control" ng-model="quest.description" placeholder="what's this quest about..."></textarea>
+                <textarea 
+                    class="form-control" 
+                    id="description" 
+                    name="description" 
+                    ng-model="quest.description" 
+                    placeholder="what's this quest about..."
+                    rows="5">
+                </textarea>
             </div>
             
             <label class="col-md-2 control-label" for="category">Category</label>
             <div class="col-md-3">
-                <select name="category" id="category" class="form-control" ng-model="quest.category">
-                    <option value="">Select one</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
+                <select 
+                    class="form-control" 
+                    id="category" 
+                    name="category"
+                    ng-disabled="categories.length === 0 || newCategory.name.length > 0" 
+                    ng-init="quest.category = categories[0]"
+                    ng-model="quest.category"
+                    ng-options="option for option in categories">
                 </select>
             </div>
-            <label class="col-md-2 control-label" for="categoryCreation">or create one</label>
+            <label class="col-md-2 control-label" for="categoryCreation">create new</label>
             <div class="col-md-3">
-                <input type="text" class="form-control" id="categoryCreation" name="categoryCreation"  placeholder="category name">
+                <input 
+                    class="form-control" 
+                    id="categoryCreation" 
+                    name="categoryCreation"
+                    ng-model="newCategory.name"  
+                    placeholder="category name"
+                    type="text"> 
             </div>
             <div class="col-md-2">
-                <input type="text" class="form-control colorPicker" placeholder="and color">
+                <input type="text" class="form-control colorPicker" placeholder="and color" ng-model="newCategory.color">
+            </div>
+            <div class="col-md-10 col-md-offset-2" ng-if="categoryError">
+                <p class="messages">You haven't selected or created a category</p>
             </div>
             
             <label class="col-md-2 control-label" for="deadline">Deadline</label>
             <div class="col-md-10">
                 <div class="input-group date" id="datetimepicker">
-                    <input type="text" ng-model="quest.deadlineFormatted" class="form-control" placeholder="optional; use the datepicker on the right">
+                    <input 
+                        id="deadline" 
+                        class="form-control"
+                        name="deadline" 
+                        ng-model="quest.deadlineFormatted" 
+                        placeholder="optional; use the datepicker on the right"
+                        type="text"> 
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -44,13 +75,23 @@
             <div class="col-md-2">
                 <input id="adventure" type="checkbox" ng-click="toggleAdventures()">
             </div>
-            <label for="selectAdventure" class="col-md-3 control-label animate-if" ng-if="quest.hasAdventure">select adventure</label>
+            <label 
+                class="col-md-3 control-label animate-if" 
+                for="selectAdventure" 
+                ng-if="quest.hasAdventure && adventures.length > 0">
+                select adventure
+            </label>
             <div class="col-md-5 animate-if" ng-if="quest.hasAdventure">
-                <select name="selectAdventure" id="selectAdventure" class="form-control" ng-model="quest.adventure">
-                    <option value="a new hope">1</option>
-                    <option value="empire strikes back">2</option>
-                    <option value="return of the jedi">3</option>
+                <select 
+                    class="form-control" 
+                    id="selectAdventure" 
+                    name="selectAdventure" 
+                    ng-if="adventures.length > 0"
+                    ng-init="quest.adventure = adventures[0]"
+                    ng-model="quest.adventure"
+                    ng-options="option for option in adventures">
                 </select>
+                <p ng-if="adventures.length === 0">Please create an adventure first.</p>
             </div>   
                      
             <div class="col-md-11 col-md-offset-1">

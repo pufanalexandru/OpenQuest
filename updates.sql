@@ -1,3 +1,10 @@
+CREATE TABLE `categories` (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id INT(6) NOT NULL,
+    name VARCHAR(64) NOT NULL,
+    color VARCHAR(64) NOT NULL
+);
+--------------------------------------------
 CREATE TABLE `quests` (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     user_id INT(6) NOT NULL,

@@ -55,6 +55,7 @@ label.btn-default {
 
 .messages {
     color: #FF0000;
+    margin-top: -10px;
 }
 
 /*  ----------- LOGIN PAGE --------- */
