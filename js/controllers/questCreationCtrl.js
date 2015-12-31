@@ -2,16 +2,28 @@ app.controller('questCreationCtrl', ['$scope', function ($scope) {
 
     $('.colorPicker').colorpicker({ format: 'hex' }); 
     $('#datetimepicker').datetimepicker({ 
-        minDate: new Date()
+        minDate: new Date(),
+        format: 'DD/MM/YYYY HH:mm'
     });   
     $('#adventure').bootstrapToggle({
         on: 'Yes',
         off: 'No'
     });
     
+    $('#datetimepicker').on('dp.change', function (date) {
+        $scope.$apply(function () {
+            $scope.quest.deadlineFormatted = date.date._d.toLocaleString();
+            $scope.quest.deadline = date.date._d;
+        });
+    });
+    
     $scope.quest = {
+        name: '',
+        description: '',
         deadline: '',
-        hasAdventure: false
+        category: '',
+        hasAdventure: false,
+        adventure: ''
     };
     
     $scope.toggleAdventures = function () {
@@ -19,8 +31,7 @@ app.controller('questCreationCtrl', ['$scope', function ($scope) {
     };
     
     $scope.createQuest = function () {
-        console.log('asdsa');
+        console.log($scope.quest);
     };
-    
 
 }]);
