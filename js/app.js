@@ -13,11 +13,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/main',
             templateUrl: 'views/main.html',
             controller: 'mainCtrl',
-            resolve: {
-                getData: function (data) {
-                    return data.resolve();
-                }
-            }
+            resolve: { getData: 'data' }
         })
 
         .state('main.dashboard', {

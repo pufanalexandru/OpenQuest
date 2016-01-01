@@ -15,9 +15,8 @@ app.service('data', ['$http', '$q', function ($http, $q) {
         return deferred.promise; 
     };
     
-    self.resolve = function () {
-        self.getData().then(function (response) {
-            self.categories = response.categories || [];
-        });
-    };        
+    self.getData().then(function (response) {
+        self.categories = response.categories || [];
+    });
+     
 }]);
