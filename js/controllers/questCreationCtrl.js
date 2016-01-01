@@ -1,4 +1,4 @@
-app.controller('questCreationCtrl', ['$scope', '$rootScope', '$http', 'data', function ($scope, $rootScope, $http, data) {
+app.controller('questCreationCtrl', ['$scope', '$http', 'data', function ($scope, $http, data) {
     $('.colorPicker').colorpicker({ format: 'hex' }); 
     
     $('.colorPicker').on('changeColor', function () {
@@ -33,12 +33,14 @@ app.controller('questCreationCtrl', ['$scope', '$rootScope', '$http', 'data', fu
         color: ''
     };
     
+    $scope.categories = data.categories;
+    
     $scope.$watch('newCategory.name', function (newValue) {
         if (newValue.length > 0) {
             $scope.quest.category = '';
             $scope.categoryError = false;
-        } else if ($rootScope.data && $rootScope.data.categories.length > 0) {
-            $scope.quest.category = $rootScope.data.categories[0].id;
+        } else if ($scope.categories && $scope.categories.length > 0) {
+            $scope.quest.category = $scope.categories[0].id;
         }
     });
     

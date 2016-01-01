@@ -32,9 +32,9 @@
                     class="form-control" 
                     id="category" 
                     name="category"
-                    ng-disabled="data.categories.length === 0 || newCategory.name.length > 0" 
+                    ng-disabled="categories.length === 0 || newCategory.name.length > 0" 
                     ng-model="quest.category"
-                    ng-options="category.id as category.name for category in data.categories">
+                    ng-options="category.id as category.name for category in categories">
                 </select>
             </div>
             <label class="col-md-2 control-label" for="categoryCreation">create new</label>

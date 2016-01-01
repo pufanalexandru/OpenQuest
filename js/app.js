@@ -12,12 +12,18 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             abstract: true,
             url: '/main',
             templateUrl: 'views/main.html',
-            controller: 'mainCtrl'
+            controller: 'mainCtrl',
+            resolve: {
+                getData: function (data) {
+                    return data.resolve();
+                }
+            }
         })
 
         .state('main.dashboard', {
             url: '/dashboard',
-            templateUrl: 'views/dashboard.html'
+            templateUrl: 'views/dashboard.html',
+            controller: 'dashboardCtrl'
         })
 
         .state('main.quests', {

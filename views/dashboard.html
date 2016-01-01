@@ -1,4 +1,8 @@
 <oq-navbar title="Dashboard" icon="fa-home"></oq-navbar>
 <div class="main">
-    Dashboard
+    <ul>
+        <li ng-repeat="category in categories">
+            {{category.name}}
+        </li>
+    </ul>
 </div>
