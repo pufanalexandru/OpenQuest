@@ -3,8 +3,9 @@ app.controller('mainCtrl', ['$scope', '$rootScope', 'auth', 'data', function ($s
     auth.checkToken();   
     $scope.logout = auth.logout;
     
+    $rootScope.data = {};
     data.getData().then(function (response) {
-        $rootScope.data = response;
+        $rootScope.data.categories = response.categories || [];
     });
     
     $('#menu li').click(function () {
