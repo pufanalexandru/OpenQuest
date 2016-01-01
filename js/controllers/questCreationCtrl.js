@@ -1,19 +1,16 @@
-app.controller('questCreationCtrl', ['$scope', '$http', 'data', function ($scope, $http, data) {
-    $scope.getData = data.getData;
-    $scope.getData();
-
+app.controller('questCreationCtrl', ['$scope', '$rootScope', '$http', 'data', function ($scope, $rootScope, $http, data) {
     $('.colorPicker').colorpicker({ format: 'hex' }); 
     
-    $('.colorPicker').on('changeColor', function (color) {
+    $('.colorPicker').on('changeColor', function () {
         $scope.newCategory.color = $('input.colorPicker').val();
     });
     
     $('#datetimepicker').datetimepicker({ 
         minDate: new Date(),
-        format: 'DD/MM/YYYY HH:mm'
+        format: 'YYYY/MM/DD HH:mm'
     });   
     
-    $('#datetimepicker').on('dp.change', function (date) {
+    $('#datetimepicker').on('dp.change', function () {
         $scope.quest.deadline = $('input#deadline').val();
     });
     
@@ -40,13 +37,12 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'data', function ($scope
         if (newValue.length > 0) {
             $scope.quest.category = '';
             $scope.categoryError = false;
-        } else if ($scope.categories.length > 0) {
-            $scope.quest.category = $scope.categories[0];
+        } else if ($rootScope.data && $rootScope.data.categories.length > 0) {
+            $scope.quest.category = $rootScope.data.categories[0].id;
         }
     });
     
-    $scope.categories = [];
-    $scope.adventures = ['asdas'];
+    $scope.adventures = [];
     
     $scope.toggleAdventures = function () {
         $scope.quest.hasAdventure = !$scope.quest.hasAdventure;
@@ -59,7 +55,8 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'data', function ($scope
         }
         
         if ($scope.quest.hasAdventure && !$scope.quest.adventure) {
-            $scope.quest.hasAdventure = false;  
+            $scope.quest.hasAdventure = false;
+            $('#adventure').bootstrapToggle('off');  
         }
         
         if (!$scope.quest.hasAdventure) {
@@ -71,17 +68,30 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'data', function ($scope
             $scope.quest.deadline = '';
         }
         
+        var newQuest = {};
+        for (var key in $scope.quest) {
+            if ($scope.quest[key] && key != 'hasAdventure') {
+                newQuest[key] = $scope.quest[key];
+            }
+        }
+        
+        var sendData = function () {
+            $http.post('backend/createQuest.php?token=' + localStorage['token'], JSON.stringify(newQuest))
+                .then(function (response) {
+                    console.log(response);
+                });
+        };
+        
         if ($scope.newCategory.name) {
             $scope.newCategory.color = $scope.newCategory.color || '#0B7BB7';
             $http.post('backend/createCategory.php?token=' + localStorage['token'], JSON.stringify($scope.newCategory))
                 .then(function (response) {
-                    console.log(response);
-                })
-            
-        }
-        
-        console.log($scope.quest);
-        console.log($scope.newCategory);
+                    newQuest.category = response.data;
+                    sendData();
+                });
+        } else {
+            sendData();
+        }             
     };
 
 }]);

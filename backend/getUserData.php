@@ -4,7 +4,7 @@
     $user = $get_user();
     $data = array();
     
-    $query = "SELECT name, color FROM categories WHERE user_id = '{$user}'";
+    $query = "SELECT id, name, color FROM categories WHERE user_id = '{$user}'";
     $result = mysqli_query($database_connection, $query);
 
     if (mysqli_num_rows($result) > 0) {

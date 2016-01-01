@@ -32,10 +32,9 @@
                     class="form-control" 
                     id="category" 
                     name="category"
-                    ng-disabled="categories.length === 0 || newCategory.name.length > 0" 
-                    ng-init="quest.category = categories[0]"
+                    ng-disabled="data.categories.length === 0 || newCategory.name.length > 0" 
                     ng-model="quest.category"
-                    ng-options="option for option in categories">
+                    ng-options="category.id as category.name for category in data.categories">
                 </select>
             </div>
             <label class="col-md-2 control-label" for="categoryCreation">create new</label>
@@ -49,7 +48,11 @@
                     type="text"> 
             </div>
             <div class="col-md-2">
-                <input type="text" class="form-control colorPicker" placeholder="and color" ng-model="newCategory.color">
+                <input 
+                    class="form-control colorPicker" 
+                    ng-model="newCategory.color"
+                    placeholder="and color" 
+                    type="text">
             </div>
             <div class="col-md-10 col-md-offset-2" ng-if="categoryError">
                 <p class="messages">You haven't selected or created a category</p>

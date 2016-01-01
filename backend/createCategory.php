@@ -10,4 +10,6 @@
     
     $query = "INSERT INTO categories (user_id, name, color) VALUES ('{$user}', '{$name}', '{$color}')";
     $result = mysqli_query($database_connection, $query);
+    
+    echo mysqli_insert_id($database_connection);
 ?>
