@@ -1,6 +1,4 @@
 app.controller('loginCtrl', ['$scope', 'auth', function ($scope, auth) {   
-
-    auth.checkToken();
      
     $scope.loginData = {
         email: '',

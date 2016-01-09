@@ -52,5 +52,5 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'views/settings.html'
         });
         
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/main/dashboard');
 });
