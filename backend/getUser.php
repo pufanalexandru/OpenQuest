@@ -10,6 +10,8 @@
             while ($row = mysqli_fetch_assoc($user_id)) {
                return $row['id'];
             }
+        } else {
+            die ('Please login');
         }
     };
 ?>

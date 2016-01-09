@@ -31,5 +31,7 @@
     }
     
     $query .= ");";
-    $result = mysqli_query($database_connection, $query);
+    if (mysqli_query($database_connection, $query)) {
+        echo "qest created";
+    }
 ?>

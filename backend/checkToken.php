@@ -4,9 +4,8 @@
     $token = $data->token;
     
     $query = "SELECT * FROM users WHERE token = '{$token}'";
-    $result = mysqli_query($database_connection, $query);
     
-    if (mysqli_num_rows($result) == 1) {
+    if (mysqli_query($database_connection, $query)) {
         echo 'authorized';
     } else {
         echo 'unauthorized';

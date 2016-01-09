@@ -69,7 +69,7 @@
                         placeholder="optional; use the datepicker on the right"
                         type="text"> 
                     <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
+                        <i class="fa fa-calendar"></i>
                     </span>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                     ng-model="quest.adventure"
                     ng-options="option for option in adventures">
                 </select>
-                <p ng-if="adventures.length === 0">Please create an adventure first.</p>
+                <p ng-if="adventures.length === 0">Please <a ui-sref="main.adventureCreation">create</a> an adventure first.</p>
             </div>   
                      
             <div class="col-md-11 col-md-offset-1">

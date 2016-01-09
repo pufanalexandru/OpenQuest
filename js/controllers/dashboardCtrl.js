@@ -1,4 +1,4 @@
-app.controller('dashboardCtrl', ['$scope', 'data', function ($scope, data) {
-    $scope.categories = data.categories;
-    $scope.quests = data.quests;
+app.controller('dashboardCtrl', ['$scope', 'dataService', function ($scope, dataService) {
+    $scope.categories = dataService.categories;
+    $scope.quests = dataService.quests;
 }]);

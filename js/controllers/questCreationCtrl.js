@@ -1,4 +1,4 @@
-app.controller('questCreationCtrl', ['$scope', '$http', 'data', function ($scope, $http, data) {
+app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function ($scope, $http, dataService) {
     $('.colorPicker').colorpicker({ format: 'hex' }); 
     
     $('.colorPicker').on('changeColor', function () {
@@ -33,7 +33,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'data', function ($scope
         color: ''
     };
     
-    $scope.categories = data.categories;
+    $scope.categories = dataService.categories;
     
     $scope.$watch('newCategory.name', function (newValue) {
         if (newValue.length > 0) {

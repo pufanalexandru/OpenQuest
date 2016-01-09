@@ -1,4 +1,4 @@
-app.service('data', ['$http', '$q', function ($http, $q) {
+app.service('dataService', ['$http', '$q', function ($http, $q) {
     var self = this;
     
     self.getData = function () {
@@ -16,9 +16,14 @@ app.service('data', ['$http', '$q', function ($http, $q) {
         return deferred.promise; 
     };
     
-    self.getData().then(function (response) {
-        self.categories = response.categories || [];
-        self.quests = response.quests || [];
-    });
+    self.fetchData = function (callback) {
+        self.getData().then(function (response) {
+            self.categories = response.categories || [];
+            self.quests = response.quests || [];
+            if (callback) {
+                callback();
+            }
+        });
+    };
      
 }]);
