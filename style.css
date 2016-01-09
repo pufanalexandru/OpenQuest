@@ -217,6 +217,11 @@ label.btn-default {
     color: #000;
 }
 
+.alert-success {
+    text-align: center;
+    margin-top: 20px;
+}
+
 /*  MEDIA QUERIES */
 /* for sidebar and content */
 @media (max-width: 767px) {

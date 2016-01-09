@@ -80,7 +80,10 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         var sendData = function () {
             $http.post('backend/createQuest.php?token=' + localStorage['token'], JSON.stringify(newQuest))
                 .then(function (response) {
-                    console.log(response);
+                    if (response.data == "success") {
+                        $scope.createdQuest = true;
+                        $scope.quest = {};
+                    }
                 });
         };
         

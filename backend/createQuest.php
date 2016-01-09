@@ -32,6 +32,6 @@
     
     $query .= ");";
     if (mysqli_query($database_connection, $query)) {
-        echo "qest created";
+        echo "success";
     }
 ?>

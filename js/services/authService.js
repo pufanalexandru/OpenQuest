@@ -12,7 +12,6 @@ app.service('auth', ['$http', '$state', 'dataService', function ($http, $state, 
                     console.log('you\'re logged in');
                     $state.go('main.dashboard');
                 } else {
-                    console.log('move away scum');
                     $state.go('auth');
                 }
             });
