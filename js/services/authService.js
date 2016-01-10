@@ -10,7 +10,6 @@ app.service('auth', ['$http', '$state', 'dataService', function ($http, $state, 
             .then(function (response) {
                 if (response.data == 'authorized') {
                     console.log('you\'re logged in');
-                    $state.go('main.dashboard');
                 } else {
                     $state.go('auth');
                 }

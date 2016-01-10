@@ -3,9 +3,21 @@
         <div class="panel-heading">
             <h4>{{title}}</h4>
         </div>
+        <div class="panel-body">
+            <input type="text" class="form-control input-sm" ng-model="query" placeholder="&#xf002;   search quest">
+            <select class="form-control input-sm" ng-model="order"> 
+                <option value="" disabled>order by</option>
+                <option value="name">name</option>
+                <option value="-deadline">deadline</option>
+                <option value="categoryName">category name</option>
+            </select>     
+        </div>
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="quest in listItems">
-                {{quest.name}}
+            <li class="list-group-item" ng-repeat="quest in listItems | filter: query | orderBy: order">
+                {{quest.name}} &nbsp; 
+                <span class="label label-default" ng-style="{'color': quest.color, 'background': quest.background}">
+                    {{quest.category}}
+                </span>
             </li>
         </ul>
     </div>

@@ -88,7 +88,8 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         };
         
         if ($scope.newCategory.name) {
-            $scope.newCategory.color = $scope.newCategory.color || '#0B7BB7';
+            $scope.newCategory.color = $scope.newCategory.background || '#0B7BB7';
+            $scope.newCategory.color = parseInt($scope.newCategory.color.replace('#', ''), 16) > 0xffffff / 2 ? '#000' : '#fff';
             $http.post('backend/createCategory.php?token=' + localStorage['token'], JSON.stringify($scope.newCategory))
                 .then(function (response) {
                     newQuest.category = response.data;

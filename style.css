@@ -209,6 +209,21 @@ label.btn-default {
     background: rgba(0,0,0,0);
 }
 
+.panel-body {
+    padding: 0;
+}
+
+.panel-body input, .panel-body select.form-control {
+    border: none;
+    border-radius: 0;
+    color: #999;
+}
+
+.panel-body input {
+    border-bottom: 1px solid #F5F5F5;
+    font-family: 'FontAwesome', 'Open Sans', sans-serif;
+}
+
 /* QUESTS AND ADVENTURES CREATION */
 .creation input, .creation textarea, .creation #datetimepicker, .creation .toggle {
     margin-bottom: 20px;

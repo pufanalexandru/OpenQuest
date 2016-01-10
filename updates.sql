@@ -1,3 +1,7 @@
+ALTER TABLE `categories` ADD `background` VARCHAR(64);
+
+ALTER TABLE `quests` ADD `active` TINYINT(1) DEFAULT 1;
+-------------------------------------------
 ALTER TABLE `quests` ADD `adventure` INT(6);
 
 ALTER TABLE `quests` MODIFY `deadline` VARCHAR(64);
