@@ -2,7 +2,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
     $('.colorPicker').colorpicker({ format: 'hex' }); 
     
     $('.colorPicker').on('changeColor', function () {
-        $scope.newCategory.color = $('input.colorPicker').val();
+        $scope.newCategory.background = $('input.colorPicker').val();
     });
     
     $('#datetimepicker').datetimepicker({ 
@@ -30,7 +30,8 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
     
     $scope.newCategory = {
         name: '',
-        color: ''
+        color: '',
+        background: ''
     };
     
     $scope.categories = dataService.categories;
@@ -92,6 +93,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
             $scope.newCategory.color = parseInt($scope.newCategory.color.replace('#', ''), 16) > 0xffffff / 2 ? '#000' : '#fff';
             $http.post('backend/createCategory.php?token=' + localStorage['token'], JSON.stringify($scope.newCategory))
                 .then(function (response) {
+                    console.log(response);
                     newQuest.category = response.data;
                     sendData();
                 });
