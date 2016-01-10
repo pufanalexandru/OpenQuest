@@ -260,6 +260,13 @@ label.btn-default {
     font-family: 'FontAwesome', 'Open Sans', sans-serif;
 }
 
+
+#quest-sidebar .list-group-item {
+    border-bottom: 1px solid #DDD;
+    border-radius: 0;
+}
+
+
 /* QUESTS AND ADVENTURES CREATION */
 .creation input, .creation textarea, .creation #datetimepicker, .creation .toggle {
     margin-bottom: 20px;
