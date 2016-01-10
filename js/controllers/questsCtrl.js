@@ -1,9 +1,16 @@
-app.controller('questsCtrl', ['$scope', '$window', 'dataService', function ($scope, $window, dataService) {
-    $scope.categories = dataService.categories;
+app.controller('questsCtrl', ['$scope', '$window', '$timeout', 'dataService', function ($scope, $window, $timeout, dataService) {
+
     $scope.quests = dataService.quests;
+    if ($scope.quests == undefined) {
+        $timeout(function () {
+            $scope.quests = dataService.quests;
+            $scope.categories = dataService.categories
+        }, 1000)
+    }
         
+    console.log($scope.quests);
     $scope.toggle = function () {
-        var length = $('#quest-content').css('margin-left') == "31px" ? 250 : 31;
+        var length = $('#quest-content').css('margin-left') == "31px" ? 230 : 31;
         
         $('#quest-content').animate({ 'margin-left': length });
         $('#quest-sidebar').animate({ 'width': length });
