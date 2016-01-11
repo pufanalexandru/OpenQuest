@@ -237,12 +237,19 @@ ul {
     font-family: 'FontAwesome', 'Open Sans', sans-serif;
 }
 
-
 #quest-sidebar .list-group-item {
     border-bottom: 1px solid #DDD;
     border-radius: 0;
 }
 
+#quest-sidebar label {
+    padding: 3px 6px 0;
+    font-weight: normal;
+}
+
+#quest-sidebar label input {
+    margin-right: 3px;
+}
 
 /* QUESTS AND ADVENTURES CREATION */
 .creation input, .creation textarea, .creation #datetimepicker, .creation .toggle {

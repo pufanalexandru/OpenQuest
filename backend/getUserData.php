@@ -24,7 +24,7 @@
         }
     };
     
-    $query = "SELECT id, name, description, category, deadline, adventure, active FROM quests WHERE quests.user_id = {$user}";
+    $query = "SELECT id, name, description, category, deadline, adventure, active, completed, failed FROM quests WHERE quests.user_id = {$user}";
     $fetchData('quests');
     
     $query = "SELECT id, name, color, background FROM categories WHERE categories.user_id = {$user}";

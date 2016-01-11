@@ -7,6 +7,12 @@ app.controller('questsCtrl', ['$scope', '$window', '$timeout', 'dataService', fu
         }, 500);
     }
         
+    $scope.checkboxes = {
+        active: true,
+        completed: false,
+        failed: false
+    };    
+        
     console.log($scope.quests);
     $scope.toggle = function () {
         var length = $('#quest-content').css('margin-left') == "31px" ? 230 : 31;

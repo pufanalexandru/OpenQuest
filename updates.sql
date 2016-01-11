@@ -1,4 +1,6 @@
 -------------------------------------------
+ALTER TABLE `quests` ADD COLUMN `completed` TINYINT(1) DEFAULT 0, ADD COLUMN `failed` TINYINT(1) DEFAULT 0; 
+-------------------------------------------
 ALTER TABLE `categories` ADD `background` VARCHAR(64);
 
 ALTER TABLE `quests` ADD `active` TINYINT(1) DEFAULT 1;
