@@ -1,5 +1,5 @@
 app.controller('questsCtrl', ['$scope', '$window', '$timeout', 'dataService', function ($scope, $window, $timeout, dataService) {
-    console.log(dataService.quests);
+
     $scope.quests = dataService.quests;
     if ($scope.quests == undefined) {
         $timeout(function () {
@@ -13,7 +13,6 @@ app.controller('questsCtrl', ['$scope', '$window', '$timeout', 'dataService', fu
         failed: false
     };    
         
-    console.log($scope.quests);
     $scope.toggle = function () {
         var length = $('#quest-content').css('margin-left') == "31px" ? 230 : 31;
         
