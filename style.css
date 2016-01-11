@@ -31,10 +31,10 @@ ul {
     border: 1px solid #000;
     border-radius: 0;
     box-shadow: 2px 0px 2px #000;
-    transition: color 1s, border-color 1s, border-top-color 1s;
+    transition: color 1s;
 }
 
-.btn-default:hover,  {
+.btn-default:hover {
     border-color: #0D5091;
     border-top-color: #0B9BD3;
 }
