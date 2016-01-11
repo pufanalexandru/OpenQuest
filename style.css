@@ -1,5 +1,5 @@
 /* ------------- GLOBAL STYLES ---------- */
-/* styles available for all pages */
+/* styles that appear on multiple pages */
 html, body {
     background: url('img/crossword.png');
     font-family: 'Open Sans', sans-serif;
@@ -45,10 +45,6 @@ ul {
     color: #FFF;
 }
 
-label.btn-default {
-    box-shadow: none;
-}
-
 .btn-dark {
     border: 1px solid #FFF;
     color: #FFF;
@@ -57,6 +53,11 @@ label.btn-default {
 .messages {
     color: #FF0000;
     margin-top: -5px;
+}
+
+.login-form, .jumbotron, .sidebar li.active, #collapseMenu li.active {
+    background: rgba(0,0,0,0.6);
+    color: #FFF;
 }
 
 /*  ----------- LOGIN PAGE --------- */
@@ -72,13 +73,10 @@ label.btn-default {
 }
 
 .login-form {
-    background: rgba(0,0,0,0.6);
-    color: #FFF;
     padding: 50px;
 }
 
 .login-form h1 {
-    font-size: 2.7em;
     margin: -30px 0 40px;
     text-align: center;
     text-shadow: 4px 4px 1px #000;
@@ -104,8 +102,6 @@ label.btn-default {
 
 /* activate account */
 .jumbotron {
-    background: rgba(0,0,0,0.6);
-    color: #FFF;
     margin-top: 25%;
     text-align: center;
 }
@@ -133,11 +129,6 @@ label.btn-default {
     border-bottom: 1px solid #CCC;
     cursor: pointer;
     padding: 15px 20px;
-}
-
-.sidebar li.active, #collapseMenu li.active {
-    background: rgba(0,0,0,0.6);
-    color: #FFF;
 }
 
 .sidebar li i {
