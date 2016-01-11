@@ -1,4 +1,4 @@
-var app = angular.module('toDo', ['ui.router', 'ngMessages']);
+var app = angular.module('openQuest', ['ui.router', 'ngMessages']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
