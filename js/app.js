@@ -1,4 +1,4 @@
-var app = angular.module('toDo', ['ui.router', 'ngMessages', 'ngAnimate']);
+var app = angular.module('toDo', ['ui.router', 'ngMessages']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
