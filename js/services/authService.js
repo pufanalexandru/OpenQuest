@@ -5,8 +5,7 @@ app.service('auth', ['$http', '$state', 'dataService', function ($http, $state, 
         if (!localStorage['token'] || localStorage['token'] == 'LOGGED OUT') {
             $state.go('auth');
         }
-        var data = { token: localStorage['token'] };
-        $http.post('backend/checkToken.php', data)
+        $http.post('backend/checkToken.php', localStorage['token'])
             .then(function (response) {
                 if (response.data == 'authorized') {
                     console.log('you\'re logged in');
