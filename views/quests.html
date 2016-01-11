@@ -18,7 +18,7 @@
                 <label><input type="checkbox" ng-model="checkboxes.failed">failed</label>    
             </div>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="quest in quests | filter: query | orderBy: order | questStatus: checkboxes">
+                <li class="list-group-item" ng-repeat="quest in quests | filter: query | questStatus: checkboxes | orderBy: order">
                     {{quest.name}} &nbsp; 
                     <span class="label label-default" ng-style="{'color': quest.color, 'background': quest.background}">
                         {{quest.category}}
