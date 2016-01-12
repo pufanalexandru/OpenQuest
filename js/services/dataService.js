@@ -19,15 +19,6 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
         self.getData().then(function (response) {
             self.categories = response.categories || [];
             self.quests = response.quests || [];
-            self.quests.forEach(function (quest) {
-                self.categories.forEach(function (category) {
-                    if (category.id == quest.category) {
-                        quest.category = category.name;
-                        quest.color = category.color;
-                        quest.background = category.background;
-                    }
-                });
-            });
             console.log(self.quests);
             if (callback) {
                 callback();

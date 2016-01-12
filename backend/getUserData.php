@@ -24,11 +24,11 @@
         }
     };
     
-    $query = "SELECT id, name, description, category, deadline, adventure, active, completed, failed FROM quests WHERE quests.user_id = {$user}";
+    $query = "SELECT quests.id, quests.name, quests.description, quests.deadline, quests.adventure, quests.active, quests.completed, quests.failed, categories.name AS category, categories.color, categories.background FROM quests, categories WHERE quests.user_id = {$user} AND quests.category = categories.id";
     $fetchData('quests');
     
     $query = "SELECT id, name, color, background FROM categories WHERE categories.user_id = {$user}";
     $fetchData('categories');
-    
+   
     echo json_encode($data);
 ?>
