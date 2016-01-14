@@ -22,10 +22,19 @@
                 $error .= 'It seems that you haven\'t acctivated your account';
                 die($error);
             }
-            $token = $email . ' | ' . uniqid() . uniqid() . uniqid();
-            $query = "UPDATE users SET token = '{$token}' WHERE email = '{$email}' AND password = '{$password}'";
-            $updateToken = mysqli_query($database_connection, $query);    
-            echo $token;        
+            
+            if (is_null($row['token_expiration']) || $row['token_expiration'] < time()) {
+                $token = $email . ' | ' . uniqid() . uniqid() . uniqid();
+                $token_expiration = time() + (24 * 60 * 60);
+                
+                $query = "UPDATE users SET token = '{$token}', token_expiration = '{$token_expiration}' WHERE email = '{$email}' AND password = '{$password}'";
+                $updateToken = mysqli_query($database_connection, $query); 
+            } else {
+                $token = $row['token'];
+            }
+            
+            echo $token; 
+                  
         } else {
             $error .= "Wrong password.";
             echo $error;
