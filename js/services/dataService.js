@@ -4,7 +4,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
     self.getData = function () {
         var deferred = $q.defer();
 
-        $http.get('backend/getUserData.php?token=' + localStorage['token'])
+        $http.get('backend/getUserData.php?token=' + localStorage.token)
             .success(function (response) {
                 deferred.resolve(response);
             })

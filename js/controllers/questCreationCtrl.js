@@ -79,7 +79,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         }
         
         var sendData = function () {
-            $http.post('backend/createQuest.php?token=' + localStorage['token'], JSON.stringify(newQuest))
+            $http.post('backend/createQuest.php?token=' + localStorage.token, JSON.stringify(newQuest))
                 .then(function (response) {
                     if (response.data == "success") {
                         $scope.createdQuest = true;
@@ -91,7 +91,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         if ($scope.newCategory.name) {
             $scope.newCategory.background = $scope.newCategory.background || '#0B7BB7';
             $scope.newCategory.color = parseInt($scope.newCategory.color.replace('#', ''), 16) > 0xffffff / 2 ? '#000' : '#fff';
-            $http.post('backend/createCategory.php?token=' + localStorage['token'], JSON.stringify($scope.newCategory))
+            $http.post('backend/createCategory.php?token=' + localStorage.token, JSON.stringify($scope.newCategory))
                 .then(function (response) {
                     console.log(response);
                     newQuest.category = response.data;

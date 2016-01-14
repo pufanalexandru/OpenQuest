@@ -2,10 +2,10 @@ app.service('auth', ['$http', '$state', 'dataService', function ($http, $state, 
     var self = this;
     
     self.checkToken = function () {
-        if (!localStorage['token'] || localStorage['token'] == 'LOGGED OUT') {
+        if (!localStorage.token || localStorage.token == 'LOGGED OUT') {
             $state.go('auth');
         }
-        $http.post('backend/checkToken.php', localStorage['token'])
+        $http.post('backend/checkToken.php', localStorage.token)
             .then(function (response) {
                 if (response.data == 'authorized') {
                     console.log('you\'re logged in');
@@ -21,7 +21,7 @@ app.service('auth', ['$http', '$state', 'dataService', function ($http, $state, 
                 if (response.data.indexOf('Ooops') != -1) {
                     error.login = response.data;
                 } else {
-                    localStorage['token'] = response.data;
+                    localStorage.token = response.data;
                     dataService.fetchData(function () {
                         $state.go('main.dashboard');
                     });
@@ -50,10 +50,9 @@ app.service('auth', ['$http', '$state', 'dataService', function ($http, $state, 
     };
     
     self.logout = function () {
-        localStorage.clear();
-        var data = { token: localStorage['token'] };
-         $http.post('backend/logout.php', data)
-            .then(function (response) {
+        $http.post('backend/logout.php', localStorage.token)
+            .then(function () {
+                localStorage.clear();
                 $state.go('auth');
             }, function (error) {
                 console.error(error);

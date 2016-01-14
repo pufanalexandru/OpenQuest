@@ -1,7 +1,7 @@
 app.controller('questsCtrl', ['$scope', '$window', '$timeout', 'dataService', function ($scope, $window, $timeout, dataService) {
 
     $scope.quests = dataService.quests;
-    if ($scope.quests == undefined) {
+    if (!$scope.quests) {
         $timeout(function () {
             $scope.quests = dataService.quests;
         }, 500);

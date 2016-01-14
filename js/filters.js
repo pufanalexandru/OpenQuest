@@ -6,7 +6,6 @@ app.filter('questStatus', function () {
             var filtered = items.filter(function (item) {
                 return parseInt(item[stat]);
             });
-            // var filtered = items.filter((item) => parseInt(item[stat]));
             results = results.concat(filtered);
         };
         
