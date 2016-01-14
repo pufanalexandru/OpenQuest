@@ -1,0 +1,280 @@
+/* ------------- GLOBAL STYLES ---------- */
+/* styles that appear on multiple pages */
+html, body {
+    background: url('img/crossword.png');
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    height: 100%;
+}
+
+h1, h2, h3, h4, .btn-default {
+    font-family: 'Raleway', sans-serif;
+}
+
+a {
+    color: #7ABCE6;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #7ABCE6;
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.btn-default {
+    background: rgba(0,0,0,0);
+    border: 1px solid #000;
+    border-radius: 0;
+    box-shadow: 2px 0px 2px #000;
+    transition: color 1s;
+}
+
+.btn-default:hover {
+    border-color: #0D5091;
+    border-top-color: #0B9BD3;
+}
+
+.btn-default:hover, .sidebar li:hover, .sidebar .collapse li:hover, span.toggle-handle, .list-group-item:hover, #quest-sidebar.collapsed .panel-heading {
+    background: -moz-linear-gradient(top, #0B9BD3, #0D5091);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #0B9BD3), color-stop(1.0, #0D5091));
+    color: #FFF;
+}
+
+.btn-dark {
+    border: 1px solid #FFF;
+    color: #FFF;
+}
+
+.messages {
+    color: #FF0000;
+    margin-top: -5px;
+}
+
+.login-form, .jumbotron, .sidebar li.active, #collapse-menu li.active {
+    background: rgba(0,0,0,0.6);
+    color: #FFF;
+}
+
+/*  ----------- LOGIN PAGE --------- */
+/* login form */
+.auth {
+    background: url('img/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100%;
+}
+
+.login-wrapper {
+    margin-top: 20%;
+}
+
+.login-form {
+    padding: 50px;
+}
+
+.login-form h1 {
+    margin: -30px 0 40px;
+    text-align: center;
+    text-shadow: 4px 4px 1px #000;
+}
+
+.login-form label {
+    font-size: 1.2em;
+}
+
+.with-margin input.form-control {
+    margin-bottom: 10px;
+}
+
+.btn-block {
+    margin-top: 20px;
+}
+
+/* signup modal */
+.modal-body .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* activate account */
+.jumbotron {
+    margin-top: 25%;
+    text-align: center;
+}
+
+/* ---------- APP PAGE ------------ */
+/* some global */
+.sidebar li, .page-head, #menu, #quest-sidebar .panel-heading {
+    background: -moz-linear-gradient(top, #FFFFFF, #F2F2F2);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #FFFFFF), color-stop(1.0, #F2F2F2));
+}
+
+/* sidebar */
+.sidebar {
+    background: url('img/crossword.png');
+    border-right: 1px solid #CCC;
+    color: #777;
+    height: 100%;
+    margin-left: -15px;
+    position: fixed;
+    width: 210px;
+    z-index: 9999;
+}
+
+.sidebar li {
+    border-bottom: 1px solid #CCC;
+    cursor: pointer;
+    padding: 15px 20px;
+}
+
+.sidebar li i {
+    font-size: 1.2em;
+    padding-right: 10px;
+}
+
+.sidebar li i.fa-caret-down {
+    float: right;
+}
+
+.sidebar .collapse li, .sidebar .collapsing li {
+    background: rgba(0,0,0,0);
+    font-size: 0.9em;
+}
+
+/* navbar */
+.page-head {
+    border-bottom: 1px solid #CCC;
+    font-size: 1.4em;
+    height: 49px;
+    margin-left: 195px;
+    padding: 10px 0 0 30px;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+.page-head i {
+    padding-right: 10px;
+}
+
+.show-menu {
+    color: #000;
+    display: none;
+    float: right;
+    margin-right: 20px;
+}
+
+#menu {
+    border-bottom: 1px solid #CCC;
+    font-size: 0.8em;
+    margin: 10px 0 0 -40px;
+}
+
+#menu li {
+    padding: 5px 20px;
+}
+
+/* main area */
+.main {
+    margin: 70px 0 0 220px;
+}
+
+/* QUESTS */
+#quest-sidebar, .list-group-item {
+    background: rgba(0,0,0,0);
+}
+
+#quest-sidebar {
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    height: 100%;
+    margin-top: -20px;
+    margin-left: -40px;
+    position: fixed;
+    width: 250px;
+}
+
+#quest-sidebar .panel-heading {
+    height: 35px;
+}
+
+#quest-sidebar .panel-heading h4 {
+    margin-top: 0;
+}
+
+#quest-sidebar .panel-heading i {
+    cursor: pointer;
+    float: right;
+}
+
+#quest-sidebar.collapsed .panel-body, #quest-sidebar.collapsed ul, #quest-sidebar.collapsed span {
+    display: none;
+}
+
+#quest-sidebar.collapsed .panel-heading h4 {
+    padding-left: 10px;
+}
+
+#quest-sidebar .panel-body {
+    padding: 0;
+}
+
+#quest-content {
+    margin-left: 230px;
+}
+
+#quest-sidebar input, #quest-sidebar select {
+    border: none;
+    color: #999;
+}
+
+#quest-sidebar input {
+    font-family: 'FontAwesome', 'Open Sans', sans-serif;
+}
+
+#quest-sidebar .list-group-item {
+    border-bottom: 1px solid #DDD;
+    border-radius: 0;
+}
+
+#quest-sidebar label {
+    padding: 3px 6px 0;
+    font-weight: normal;
+}
+
+#quest-sidebar label input {
+    margin-right: 3px;
+}
+
+/* QUESTS AND ADVENTURES CREATION */
+.creation input, .creation textarea, .creation #datetimepicker, .creation .toggle {
+    margin-bottom: 20px;
+}
+
+.creation  {
+    padding: 15px 100px 15px 70px;
+}
+
+.bootstrap-datetimepicker-widget a {
+    color: #000;
+}
+
+.alert-success {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*  MEDIA QUERIES */
+/* for sidebar and content */
+@media (max-width: 767px) {
+    .col-sm-2 { display: none; }
+    .main { margin-left: 0; }
+    .page-head { margin-left: -15px; }
+    .show-menu { display: inline; }
+    .creation { padding: 0; }
+}

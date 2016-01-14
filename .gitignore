@@ -1,5 +1,4 @@
-app/img/*
-package.json
+img/*
 node_modules/*
-dist/*
+package.json
 gulpfile.js

@@ -1,0 +1,33 @@
+<oq-navbar title="Quests" icon="fa-flag"></oq-navbar>
+<div class="main">
+    <div class="col-md-12">
+        <div class="panel panel-default" id="quest-sidebar">
+            <div class="panel-heading">
+                <h4><span>Select quest</span><i class="fa fa-chevron-left" ng-click="toggle()"></i></h4>             
+            </div>
+            <div class="panel-body">
+                <input type="text" class="form-control input-sm" ng-model="query" placeholder="&#xf002;   search quest">
+                <select class="form-control input-sm" ng-model="order"> 
+                    <option value="" disabled>order by</option>
+                    <option value="name">name</option>
+                    <option value="-deadline">deadline</option>
+                    <option value="category">category name</option>
+                </select> 
+                <label><input type="checkbox" ng-model="checkboxes.active">active</label>
+                <label><input type="checkbox" ng-model="checkboxes.completed">completed</label>
+                <label><input type="checkbox" ng-model="checkboxes.failed">failed</label>    
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="quest in quests | filter: query | questStatus: checkboxes | orderBy: order">
+                    {{quest.name}} &nbsp; 
+                    <span class="label label-default" ng-style="{'color': quest.color, 'background': quest.background}">
+                        {{quest.category}}
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div id="quest-content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste voluptatem mollitia rerum veniam perspiciatis quis sit nihil voluptatibus tenetur magni voluptate praesentium pariatur error, et dicta. Accusamus veniam repudiandae aspernatur!
+        </div>
+    </div>
+</div>
