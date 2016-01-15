@@ -39,7 +39,7 @@ ul {
     border-top-color: #0B9BD3;
 }
 
-.btn-default:hover, .sidebar li:hover, .sidebar .collapse li:hover, span.toggle-handle, .list-group-item:hover, #quest-sidebar.collapsed .panel-heading {
+.btn-default:hover, .sidebar li:hover, .sidebar .collapse li:hover, .list-group-item:hover, #quest-sidebar.collapsed .panel-heading {
     background: -moz-linear-gradient(top, #0B9BD3, #0D5091);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #0B9BD3), color-stop(1.0, #0D5091));
     color: #FFF;
@@ -252,7 +252,7 @@ ul {
 }
 
 /* QUESTS AND ADVENTURES CREATION */
-.creation input, .creation textarea, .creation #datetimepicker, .creation .toggle {
+.creation input, .creation textarea, .creation #datetimepicker {
     margin-bottom: 20px;
 }
 
@@ -262,6 +262,10 @@ ul {
 
 .bootstrap-datetimepicker-widget a {
     color: #000;
+}
+
+p.padded {
+    padding-top: 7px;
 }
 
 .alert-success {

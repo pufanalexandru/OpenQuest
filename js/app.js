@@ -1,4 +1,4 @@
-var app = angular.module('openQuest', ['ui.router', 'ngMessages']);
+var app = angular.module('openQuest', ['ui.router', 'ngMessages', 'ui.bootstrap']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $stateProvider

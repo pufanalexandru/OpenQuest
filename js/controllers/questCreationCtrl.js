@@ -14,17 +14,11 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         $scope.quest.deadline = $('input#deadline').val();
     });
     
-    $('#adventure').bootstrapToggle({
-        on: 'Yes',
-        off: 'No'
-    });
-    
     $scope.quest = {
         name: '',
         description: '',
         deadline: '',
         category: '',
-        hasAdventure: false,
         adventure: ''
     };
     
@@ -45,25 +39,12 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         }
     });
     
-    $scope.adventures = [];
-    
-    $scope.toggleAdventures = function () {
-        $scope.quest.hasAdventure = !$scope.quest.hasAdventure;
-    };
+    $scope.adventures = [{name: 'first'}];
     
     $scope.createQuest = function () {
         if (!$scope.quest.category && !$scope.newCategory.name) {
             $scope.categoryError = true;
             return;
-        }
-        
-        if ($scope.quest.hasAdventure && !$scope.quest.adventure) {
-            $scope.quest.hasAdventure = false;
-            $('#adventure').bootstrapToggle('off');  
-        }
-        
-        if (!$scope.quest.hasAdventure) {
-            $scope.quest.adventure = "";
         }
         
         $scope.quest.deadline = new Date($scope.quest.deadline);
@@ -73,7 +54,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         
         var newQuest = {};
         for (var key in $scope.quest) {
-            if ($scope.quest[key] && key != 'hasAdventure') {
+            if ($scope.quest[key]) {
                 newQuest[key] = $scope.quest[key];
             }
         }
