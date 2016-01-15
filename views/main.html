@@ -6,10 +6,10 @@
                     <li ui-sref="main.dashboard" ui-sref-active="active"><i class="fa fa-home"></i>Dashboard</li>
                     <li ui-sref="main.quests" ui-sref-active="active"><i class="fa fa-flag"></i>Quests</li>
                     <li ui-sref="main.adventures" ui-sref-active="active"><i class="fa fa-fort-awesome"></i>Adventures</li>
-                    <li data-toggle="collapse" data-target="#collapse-menu">
+                    <li ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
                         <i class="fa fa-plus"></i>Create...</a><i class="fa fa-caret-down"></i>
                     </li>
-                    <ul class="collapse" id="collapse-menu">
+                    <ul uib-collapse="isCollapsed">
                         <li ui-sref="main.questCreation" ui-sref-active="active">a quest</li>
                         <li ui-sref="main.adventureCreation" ui-sref-active="active">an adventure</li>
                     </ul>

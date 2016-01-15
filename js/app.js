@@ -1,4 +1,4 @@
-var app = angular.module('openQuest', ['ui.router', 'ngMessages', 'ui.bootstrap', 'ui.bootstrap.datetimepicker']);
+var app = angular.module('openQuest', ['ui.router', 'ngMessages', 'ngAnimate', 'ui.bootstrap', 'ui.bootstrap.datetimepicker']);
 
 app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $stateProvider
