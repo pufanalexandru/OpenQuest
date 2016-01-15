@@ -60,18 +60,22 @@
             
             <label class="col-md-2 control-label" for="deadline">Deadline</label>
             <div class="col-md-10">
-                <div class="input-group date" id="datetimepicker">
+                <p class="input-group">
                     <input 
-                        id="deadline" 
-                        class="form-control"
-                        name="deadline" 
-                        ng-model="quest.deadlineFormatted" 
-                        placeholder="optional; use the datepicker on the right"
-                        type="text"> 
-                    <span class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
+                        type="text" 
+                        class="form-control" 
+                        datetime-picker="dd MMM yyyy HH:mm" 
+                        ng-model="quest.deadline" 
+                        is-open="datePicker.isOpen" 
+                        datepicker-options="datePicker.options"
+                        timepicker-options="datePicker.timeOptions"
+                        min-date="datePicker.min">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-primary" ng-click="datePicker.open()">
+                            <i class="fa fa-calendar"></i>
+                        </button>
                     </span>
-                </div>
+                </p>
             </div>
             <label class="col-md-2 control-label">In adventure?</label>
             <div class="col-md-10">

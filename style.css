@@ -11,9 +11,12 @@ h1, h2, h3, h4, .btn-default {
     font-family: 'Raleway', sans-serif;
 }
 
+a, .sidebar li, #quest-sidebar .panel-heading i {
+    cursor: pointer;
+}
+
 a {
     color: #7ABCE6;
-    cursor: pointer;
 }
 
 a:hover {
@@ -127,7 +130,6 @@ ul {
 
 .sidebar li {
     border-bottom: 1px solid #CCC;
-    cursor: pointer;
     padding: 15px 20px;
 }
 
@@ -208,7 +210,6 @@ ul {
 }
 
 #quest-sidebar .panel-heading i {
-    cursor: pointer;
     float: right;
 }
 
@@ -271,6 +272,14 @@ p.padded {
 .alert-success {
     text-align: center;
     margin-top: 20px;
+}
+
+.date-picker-menu table button {
+    border: none;
+}
+
+.datetime-picker-dropdown button {
+    box-shadow: none;
 }
 
 /*  MEDIA QUERIES */

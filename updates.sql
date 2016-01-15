@@ -1,3 +1,5 @@
+ALTER TABLE `categories` CHANGE COLUMN `color` `color` ENUM('#fff', '#000') NOT NULL;
+-------------------------------------------
 ALTER TABLE `users` ADD `token_expiration` VARCHAR(20);
 -------------------------------------------
 ALTER TABLE `quests` ADD COLUMN `completed` TINYINT(1) DEFAULT 0, ADD COLUMN `failed` TINYINT(1) DEFAULT 0; 

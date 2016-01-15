@@ -1,19 +1,27 @@
 app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function ($scope, $http, dataService) {
+
+    $scope.categories = dataService.categories;
+    $scope.adventures = [];
+
     $('.colorPicker').colorpicker({ format: 'hex' }); 
     
     $('.colorPicker').on('changeColor', function () {
         $scope.newCategory.background = $('input.colorPicker').val();
     });
-    
-    $('#datetimepicker').datetimepicker({ 
-        minDate: new Date(),
-        format: 'YYYY/MM/DD HH:mm'
-    });   
-    
-    $('#datetimepicker').on('dp.change', function () {
-        $scope.quest.deadline = $('input#deadline').val();
-    });
-    
+        
+    $scope.datePicker = {
+        isOpen: false,
+        min: new Date(),
+        options: {
+            'startingDay': 1,
+            'show-weeks': false
+        },
+        timeOptions: { 'show-meridian': false },
+        open: function () {
+            this.isOpen = true;
+        }
+    };    
+        
     $scope.quest = {
         name: '',
         description: '',
@@ -28,8 +36,6 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         background: ''
     };
     
-    $scope.categories = dataService.categories;
-    
     $scope.$watch('newCategory.name', function (newValue) {
         if (newValue.length > 0) {
             $scope.quest.category = '';
@@ -39,19 +45,16 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         }
     });
     
-    $scope.adventures = [{name: 'first'}];
-    
     $scope.createQuest = function () {
         if (!$scope.quest.category && !$scope.newCategory.name) {
             $scope.categoryError = true;
             return;
         }
         
-        $scope.quest.deadline = new Date($scope.quest.deadline);
-        if ($scope.quest.deadline == 'Invalid Date') {
-            $scope.quest.deadline = '';
+        if ($scope.quest.deadline) {
+            $scope.quest.deadline = new Date($scope.quest.deadline).getTime();
         }
-        
+
         var newQuest = {};
         for (var key in $scope.quest) {
             if ($scope.quest[key]) {
@@ -71,7 +74,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         
         if ($scope.newCategory.name) {
             $scope.newCategory.background = $scope.newCategory.background || '#0B7BB7';
-            $scope.newCategory.color = parseInt($scope.newCategory.color.replace('#', ''), 16) > 0xffffff / 2 ? '#000' : '#fff';
+            $scope.newCategory.color = parseInt($scope.newCategory.background.replace('#', ''), 16) > 0xffffff / 2 ? '#000' : '#fff';
             $http.post('backend/createCategory.php?token=' + localStorage.token, JSON.stringify($scope.newCategory))
                 .then(function (response) {
                     console.log(response);
