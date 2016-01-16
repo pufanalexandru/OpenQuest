@@ -63,6 +63,18 @@ ul {
     color: #FFF;
 }
 
+.animate-if.ng-enter, .animate-if.ng-leave {
+    transition: all 0.5s;
+}
+
+.animate-if.ng-enter, .animate-if.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+
+.animate-if.ng-leave, .animate-if.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+
 /*  ----------- LOGIN PAGE --------- */
 /* login form */
 .auth {
@@ -198,7 +210,12 @@ ul {
     margin-top: -20px;
     margin-left: -40px;
     position: fixed;
+    transition: width 1s;
     width: 250px;
+}
+
+#quest-sidebar.collapsed {
+    width: 30px;
 }
 
 #quest-sidebar .panel-heading {
@@ -213,12 +230,8 @@ ul {
     float: right;
 }
 
-#quest-sidebar.collapsed .panel-body, #quest-sidebar.collapsed ul, #quest-sidebar.collapsed span {
-    display: none;
-}
-
-#quest-sidebar.collapsed .panel-heading h4 {
-    padding-left: 10px;
+#quest-sidebar i.fa-chevron-right {
+   float: none;
 }
 
 #quest-sidebar .panel-body {
@@ -227,6 +240,11 @@ ul {
 
 #quest-content {
     margin-left: 230px;
+    transition: margin-left 1s;
+}
+
+#quest-content.collapsed {
+    margin-left: 30px;
 }
 
 #quest-sidebar input, #quest-sidebar select {

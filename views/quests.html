@@ -1,11 +1,14 @@
 <oq-navbar title="Quests" icon="fa-flag"></oq-navbar>
 <div class="main">
     <div class="col-md-12">
-        <div class="panel panel-default" id="quest-sidebar">
+        <div class="panel panel-default" id="quest-sidebar" ng-class="{collapsed: collapsed}">
             <div class="panel-heading">
-                <h4><span>Select quest</span><i class="fa fa-chevron-left" ng-click="toggle()"></i></h4>             
+                <h4>
+                    <span class="animate-if" ng-if="!collapsed">Select quest</span>
+                    <i class="fa" ng-class="{'fa-chevron-left': !collapsed, 'fa-chevron-right': collapsed}" ng-click="collapsed=!collapsed"></i>
+                </h4>             
             </div>
-            <div class="panel-body">
+            <div class="panel-body animate-if" ng-if="!collapsed">
                 <input type="text" class="form-control input-sm" ng-model="query" placeholder="&#xf002;   search quest">
                 <select class="form-control input-sm" ng-model="order"> 
                     <option value="" disabled>order by</option>
@@ -17,7 +20,7 @@
                 <label><input type="checkbox" ng-click="include('completed')">completed</label>
                 <label><input type="checkbox" ng-click="include('failed')">failed</label>    
             </div>
-            <ul class="list-group">
+            <ul class="list-group" ng-if="!collapsed">
                 <li class="list-group-item" ng-repeat="quest in quests | filter: query | questStatus: statuses | orderBy: order">
                     {{quest.name}} &nbsp; 
                     <span class="label label-default" ng-style="{'color': quest.color, 'background': quest.background}">
@@ -26,7 +29,7 @@
                 </li>
             </ul>
         </div>
-        <div id="quest-content">
+        <div id="quest-content" ng-class="{collapsed: collapsed}">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste voluptatem mollitia rerum veniam perspiciatis quis sit nihil voluptatibus tenetur magni voluptate praesentium pariatur error, et dicta. Accusamus veniam repudiandae aspernatur!
         </div>
     </div>
