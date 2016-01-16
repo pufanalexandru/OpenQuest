@@ -7,11 +7,14 @@ app.controller('questsCtrl', ['$scope', '$window', '$timeout', 'dataService', fu
         }, 500);
     }
         
-    $scope.checkboxes = {
-        active: true,
-        completed: false,
-        failed: false
-    };    
+    $scope.statuses = ['active'];
+    $scope.include = function (status) {
+        if ($scope.statuses.indexOf(status) != -1) {
+            $scope.statuses.splice($scope.statuses.indexOf(status), 1);
+        } else {
+            $scope.statuses.push(status);
+        }
+    };
         
     $scope.toggle = function () {
         var length = $('#quest-content').css('margin-left') == "31px" ? 230 : 31;

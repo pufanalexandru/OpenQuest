@@ -1,6 +1,4 @@
-img/*
+app/img/*
 node_modules/*
-package.json
-gulpfile.js
-backend/*
+app/backend/*
 *.sql

@@ -13,12 +13,12 @@
                     <option value="-deadline">deadline</option>
                     <option value="category">category name</option>
                 </select> 
-                <label><input type="checkbox" ng-model="checkboxes.active">active</label>
-                <label><input type="checkbox" ng-model="checkboxes.completed">completed</label>
-                <label><input type="checkbox" ng-model="checkboxes.failed">failed</label>    
+                <label><input type="checkbox" ng-click="include('active')" checked>active</label>
+                <label><input type="checkbox" ng-click="include('completed')">completed</label>
+                <label><input type="checkbox" ng-click="include('failed')">failed</label>    
             </div>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="quest in quests | filter: query | questStatus: checkboxes | orderBy: order">
+                <li class="list-group-item" ng-repeat="quest in quests | filter: query | questStatus: statuses | orderBy: order">
                     {{quest.name}} &nbsp; 
                     <span class="label label-default" ng-style="{'color': quest.color, 'background': quest.background}">
                         {{quest.category}}
