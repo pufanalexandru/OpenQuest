@@ -19,7 +19,6 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
         self.getData().then(function (response) {
             self.categories = response.categories || [];
             self.quests = response.quests || [];
-            console.log(self.quests);
             if (callback) {
                 callback();
             }
