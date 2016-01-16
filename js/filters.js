@@ -3,7 +3,9 @@ app.filter('questStatus', function () {
         var results = [];
         
         var checkStatus = function (status) {
-            var filtered = items.filter((item) => item.status == status);
+            var filtered = items.filter(function (item) {
+                return item.status == status;
+            });
             results = results.concat(filtered);
         };
         

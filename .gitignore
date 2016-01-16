@@ -1,4 +1,4 @@
-app/img/*
+img/*
 node_modules/*
-app/backend/*
+backend/*
 *.sql
