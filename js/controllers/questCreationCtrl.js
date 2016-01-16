@@ -2,12 +2,6 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
 
     $scope.categories = dataService.categories;
     $scope.adventures = [];
-
-    $('.colorPicker').colorpicker({ format: 'hex' }); 
-    
-    $('.colorPicker').on('changeColor', function () {
-        $scope.newCategory.background = $('input.colorPicker').val();
-    });
         
     $scope.datePicker = {
         isOpen: false,

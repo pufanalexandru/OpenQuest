@@ -42,7 +42,7 @@ ul {
     border-top-color: #0B9BD3;
 }
 
-.btn-default:hover, .sidebar li:hover, .sidebar .collapse li:hover, .list-group-item:hover, #quest-sidebar.collapsed .panel-heading {
+.btn-default:hover, .sidebar ul li:hover, .list-group-item:hover, #quest-sidebar.collapsed .panel-heading {
     background: -moz-linear-gradient(top, #0B9BD3, #0D5091);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #0B9BD3), color-stop(1.0, #0D5091));
     color: #FFF;

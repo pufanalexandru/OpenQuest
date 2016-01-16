@@ -18,6 +18,6 @@ app.controller('loginCtrl', ['$scope', 'auth', function ($scope, auth) {
     };
     
     $scope.login = auth.login;
-    $scope.signup = auth.signup;
+    $scope.signup = auth.signup;    
     
 }]);
