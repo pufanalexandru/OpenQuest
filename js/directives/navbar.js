@@ -1,8 +1,8 @@
 app.directive('oqNavbar', function () {
     return {
         scope: {
-            title: '@title',
-            icon: '@icon'
+            title: '@',
+            icon: '@'
         },
         templateUrl: 'views/directives/navbar.html'
     };
