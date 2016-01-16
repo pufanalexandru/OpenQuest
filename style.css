@@ -58,7 +58,7 @@ ul {
     margin-top: -5px;
 }
 
-.login-form, .jumbotron, .sidebar li.active, #collapse-menu li.active {
+.login-form, .jumbotron, .sidebar ul li.active {
     background: rgba(0,0,0,0.6);
     color: #FFF;
 }
