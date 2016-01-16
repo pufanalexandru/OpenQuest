@@ -15,12 +15,11 @@ a, .sidebar li, #quest-sidebar .panel-heading i {
     cursor: pointer;
 }
 
-a {
+a, a:hover {
     color: #7ABCE6;
 }
 
 a:hover {
-    color: #7ABCE6;
     text-decoration: underline;
 }
 
@@ -83,7 +82,7 @@ ul {
     min-height: 100%;
 }
 
-.login-wrapper {
+.login-wrapper, .jumbotron {
     margin-top: 20%;
 }
 
@@ -113,12 +112,6 @@ ul {
 .modal-body .form-group {
     margin-left: 0;
     margin-right: 0;
-}
-
-/* activate account */
-.jumbotron {
-    margin-top: 25%;
-    text-align: center;
 }
 
 /* ---------- APP PAGE ------------ */
