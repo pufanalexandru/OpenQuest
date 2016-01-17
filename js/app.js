@@ -15,9 +15,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             controller: 'mainCtrl',
             resolve: { 
                 getData: ['dataService', function (dataService) {
-                    if (!dataService.quests) {
-                        dataService.fetchData();
-                    }
+                    return dataService.getData();
                 }]
             }
         })

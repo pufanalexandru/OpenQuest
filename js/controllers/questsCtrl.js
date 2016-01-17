@@ -1,11 +1,6 @@
-app.controller('questsCtrl', ['$scope', '$window', '$timeout', 'dataService', function ($scope, $window, $timeout, dataService) {
+app.controller('questsCtrl', ['$scope', '$window', 'dataService', function ($scope, $window, dataService) {
 
     $scope.quests = dataService.quests;
-    if (!$scope.quests) {
-        $timeout(function () {
-            $scope.quests = dataService.quests;
-        }, 500);
-    }
         
     $scope.statuses = ['active'];
     $scope.include = function (status) {

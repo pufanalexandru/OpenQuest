@@ -15,14 +15,9 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
         return deferred.promise; 
     };
     
-    self.fetchData = function (callback) {
-        self.getData().then(function (response) {
-            self.categories = response.categories || [];
-            self.quests = response.quests || [];
-            if (callback) {
-                callback();
-            }
-        });
-    };
-     
+    self.getData().then(function (response) {
+        self.categories = response.categories || [];
+        self.quests = response.quests || [];
+    });
+
 }]);
