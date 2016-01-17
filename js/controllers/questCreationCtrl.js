@@ -16,19 +16,8 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         }
     };    
         
-    $scope.quest = {
-        name: '',
-        description: '',
-        deadline: '',
-        category: '',
-        adventure: ''
-    };
-    
-    $scope.newCategory = {
-        name: '',
-        color: '',
-        background: ''
-    };
+    $scope.quest = {};
+    $scope.newCategory = {name: ''};
     
     $scope.$watch('newCategory.name', function (newValue) {
         if (newValue.length > 0) {
@@ -48,36 +37,25 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         if ($scope.quest.deadline) {
             $scope.quest.deadline = new Date($scope.quest.deadline).getTime();
         }
-
-        var newQuest = {};
-        for (var key in $scope.quest) {
-            if ($scope.quest[key]) {
-                newQuest[key] = $scope.quest[key];
-            }
-        }
         
-        var sendData = function () {
-            $http.post('backend/createQuest.php?token=' + localStorage.token, JSON.stringify(newQuest))
-                .then(function (response) {
-                    if (response.data == "success") {
-                        $scope.createdQuest = true;
-                        $scope.quest = {};
-                    }
-                });
+        var questCreationCallback = function () {
+            $scope.createdQuest = true;
+            $scope.quest = {};
         };
         
         if ($scope.newCategory.name) {
-            $scope.newCategory.background = $scope.newCategory.background || '#0B7BB7';
-            $scope.newCategory.color = parseInt($scope.newCategory.background.replace('#', ''), 16) > 0xffffff / 2 ? '#000' : '#fff';
-            $http.post('backend/createCategory.php?token=' + localStorage.token, JSON.stringify($scope.newCategory))
-                .then(function (response) {
-                    console.log(response);
-                    newQuest.category = response.data;
-                    sendData();
-                });
+            if ($scope.newCategory.background) {
+                $scope.newCategory.color = parseInt($scope.newCategory.background.replace('#', ''), 16) > 0xffffff / 2 ? '#000' : '#fff'
+            }
+            dataService.createEntity($scope.newCategory, 'categories', function () {
+                $scope.quest.category = dataService.categories[dataService.categories.length - 1].id;
+                $scope.newCategory = {name: ''};
+                dataService.createEntity($scope.quest, 'quests', questCreationCallback);
+            });
         } else {
-            sendData();
-        }             
+            dataService.createEntity($scope.quest, 'quests', questCreationCallback);
+        } 
+           
     };
 
 }]);

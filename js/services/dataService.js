@@ -19,5 +19,13 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
         self.categories = response.categories || [];
         self.quests = response.quests || [];
     });
+    
+    self.createEntity = function (data, dataType, callback) {
+        $http.post('backend/createEntity.php?token=' + localStorage.token + '&table=' + dataType, JSON.stringify(data))
+            .then(function (response) {
+                self[dataType].push(response.data);
+                callback();
+            })
+    };
 
 }]);
