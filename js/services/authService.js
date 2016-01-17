@@ -1,4 +1,4 @@
-app.service('auth', ['$http', '$state', 'dataService', function ($http, $state, dataService) {
+app.service('auth', ['$http', '$state', function ($http, $state) {
     var self = this;
     
     self.checkToken = function () {
@@ -22,9 +22,7 @@ app.service('auth', ['$http', '$state', 'dataService', function ($http, $state, 
                     error.login = response.data;
                 } else {
                     localStorage.token = response.data;
-                    dataService.fetchData(function () {
-                        $state.go('main.dashboard');
-                    });
+                    $state.go('main.dashboard');
                 }
             }, function (error) {
                 console.error(error);
