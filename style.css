@@ -62,15 +62,15 @@ ul {
     color: #FFF;
 }
 
-.animate-if.ng-enter, .animate-if.ng-leave {
+.animate-if.ng-enter, .animate-if.ng-leave, .animate-show.ng-hide-add, .animate-show.ng-hide-remove {
     transition: all 0.5s;
 }
 
-.animate-if.ng-enter, .animate-if.ng-leave.ng-leave-active {
+.animate-if.ng-enter, .animate-if.ng-leave.ng-leave-active, .animate-show.ng-hide {
     opacity: 0;
 }
 
-.animate-if.ng-leave, .animate-if.ng-enter.ng-enter-active {
+.animate-if.ng-leave, .animate-if.ng-enter.ng-enter-active, .animate-show {
     opacity: 1;
 }
 

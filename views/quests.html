@@ -8,7 +8,7 @@
                     <i class="fa" ng-class="{'fa-chevron-left': !collapsed, 'fa-chevron-right': collapsed}" ng-click="collapsed=!collapsed"></i>
                 </h4>             
             </div>
-            <div class="panel-body animate-if" ng-if="!collapsed">
+            <div class="panel-body animate-show" ng-show="!collapsed">
                 <input type="text" class="form-control input-sm" ng-model="query" placeholder="&#xf002;   search quest">
                 <select class="form-control input-sm" ng-model="order"> 
                     <option value="" disabled>order by</option>
@@ -20,8 +20,8 @@
                 <label><input type="checkbox" ng-click="include('completed')">completed</label>
                 <label><input type="checkbox" ng-click="include('failed')">failed</label>    
             </div>
-            <ul class="list-group" ng-if="!collapsed">
-                <li class="list-group-item" ng-repeat="quest in quests | filter: query | questStatus: statuses | orderBy: order">
+            <ul class="list-group animate-show" ng-show="!collapsed">
+                <li class="list-group-item animate-if" ng-repeat="quest in quests | filter: query | questStatus: statuses | orderBy: order">
                     {{quest.name}} &nbsp; 
                     <span class="label label-default" ng-style="{'color': quest.color, 'background': quest.background}">
                         {{quest.category}}
