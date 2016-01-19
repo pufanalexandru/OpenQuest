@@ -21,7 +21,7 @@
                 <label><input type="checkbox" ng-click="include('failed')">failed</label>    
             </div>
             <ul class="list-group animate-show" ng-show="!collapsed">
-                <li class="list-group-item animate-if" ng-repeat="quest in quests | filter: query | questStatus: statuses | orderBy: order">
+                <li class="list-group-item animate-if" ui-sref="main.quests.questDetail({id: quest.id})" ng-repeat="quest in quests | filter: query | questStatus: statuses | orderBy: order">
                     {{quest.name}} &nbsp; 
                     <span class="label label-default" ng-style="{'color': quest.color, 'background': quest.background}">
                         {{quest.category}}
@@ -30,7 +30,7 @@
             </ul>
         </div>
         <div id="quest-content" ng-class="{collapsed: collapsed}">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste voluptatem mollitia rerum veniam perspiciatis quis sit nihil voluptatibus tenetur magni voluptate praesentium pariatur error, et dicta. Accusamus veniam repudiandae aspernatur!
+            <ui-view></ui-view>
         </div>
     </div>
 </div>

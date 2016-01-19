@@ -1,4 +1,4 @@
-app.controller('questsCtrl', ['$scope', '$window', 'dataService', function ($scope, $window, dataService) {
+app.controller('questsCtrl', ['$scope', '$window', '$stateParams', 'dataService', function ($scope, $window, $stateParams, dataService) {
 
     $scope.quests = dataService.quests;
         
@@ -14,4 +14,6 @@ app.controller('questsCtrl', ['$scope', '$window', 'dataService', function ($sco
     if ($window.innerWidth < 580) {
         $scope.collapsed = true;
     }
+    
+    $scope.selectedQuest = $stateParams.id;
 }]);
