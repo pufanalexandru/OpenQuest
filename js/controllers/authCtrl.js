@@ -1,4 +1,4 @@
-app.controller('loginCtrl', ['$scope', 'auth', function ($scope, auth) {   
+app.controller('loginCtrl', ['$scope', '$uibModal', 'auth', function ($scope, $uibModal, auth) {   
      
     $scope.loginData = {
         email: '',
@@ -19,5 +19,12 @@ app.controller('loginCtrl', ['$scope', 'auth', function ($scope, auth) {
     
     $scope.login = auth.login;
     $scope.signup = auth.signup;    
+    
+    $scope.openModal = function () {
+        $uibModal.open({
+            templateUrl: 'authModal.html',
+            controller: 'loginCtrl'
+        });
+    };
     
 }]);
