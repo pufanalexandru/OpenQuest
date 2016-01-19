@@ -52,7 +52,7 @@ ul {
 }
 
 .messages {
-    color: #FF0000;
+    color: #F00;
     margin-top: -5px;
 }
 
@@ -154,7 +154,7 @@ ul {
 .page-head {
     border-bottom: 1px solid #CCC;
     font-size: 1.4em;
-    height: 49px;
+    height: 48px;   
     margin-left: 195px;
     padding: 10px 0 0 30px;
     position: fixed;
