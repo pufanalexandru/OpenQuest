@@ -49,7 +49,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         
         if ($scope.newCategory.name) {
             if ($scope.newCategory.background) {
-                $scope.newCategory.color = parseInt($scope.newCategory.background.replace('#', ''), 16) > 0xffffff / 2 ? '#000' : '#fff'
+                $scope.newCategory.color = parseInt($scope.newCategory.background.replace('#', ''), 16) > 0xffffff / 2 ? '#000' : '#fff';
             }
             dataService.createEntity($scope.newCategory, 'categories', function () {
                 $scope.quest.category = dataService.categories[dataService.categories.length - 1].id;

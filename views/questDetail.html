@@ -1,3 +1,28 @@
 <div ng-repeat="quest in quests | filter: {id: selectedQuest}">
-    <center><h1>{{quest.name}}</h1></center>
+    <center>
+        <h1>{{quest.name}}</h1>
+        <h3 oq-label></h3>
+    </center>
+    
+    <div class="page-header"><h5>Description</h5></div>
+    <p class="description">{{quest.description}}</p>
+    
+    <div class="page-header"><h5>Details</h5></div>
+    <p><strong>Status</strong>: {{quest.status}}</p>
+    <p><strong>Category</strong>: <oq-label></oq-label></p>
+    <p ng-if="quest.adventure !== null"><strong>Adventure</strong>: {{quest.adventure}}</p>
+    <p ng-if="quest.deadline !== null"><strong>Deadline</strong>: {{quest.deadline | date: 'dd MMM yyyy, HH:mm'}}</p>
+    <p ng-if="quest.deadline !== null"><strong>Time left</strong>: {{calculateTime(quest.deadline)}}</p>
+    
+    <div class="btn-group btn-group-justified" style="margin-top: 100px">
+        <div class="btn-group">
+            <button class="btn btn-default">Mark as completed</button>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-default"> Mark as failed</button>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-default">Delete</button>
+        </div>
+    </div>
 </div>

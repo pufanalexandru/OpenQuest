@@ -36,6 +36,14 @@ ul {
     transition: color 1s;
 }
 
+.btn-group .btn-default {
+    box-shadow: none;
+}
+
+.btn-group:not(:last-child) .btn-default {
+    border-right: none;
+}
+
 .btn-default:hover {
     border-color: #0D5091;
     border-top-color: #0B9BD3;
@@ -259,6 +267,10 @@ ul {
 
 #quest-sidebar label input {
     margin-right: 3px;
+}
+
+.description {
+    text-align: justify;
 }
 
 /* QUESTS AND ADVENTURES CREATION */

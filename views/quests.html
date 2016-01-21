@@ -23,9 +23,7 @@
             <ul class="list-group animate-show" ng-show="!collapsed">
                 <li class="list-group-item animate-if" ui-sref="main.quests.questDetail({id: quest.id})" ng-repeat="quest in quests | filter: query | questStatus: statuses | orderBy: order">
                     {{quest.name}} &nbsp; 
-                    <span class="label label-default" ng-style="{'color': quest.color, 'background': quest.background}">
-                        {{quest.category}}
-                    </span>
+                    <oq-label></oq-label>
                 </li>
             </ul>
         </div>
