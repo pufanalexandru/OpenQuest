@@ -30,21 +30,21 @@ app.service('auth', ['$http', '$state', function ($http, $state) {
     };
     
     self.signup = function (signupData, error, isValid) {
-        if (isValid) {
-            $http.post('backend/signup.php', JSON.stringify(signupData))
-                .then(function (response) {
-                    if (response.data == 'error') {
-                        error.signup = 'This email is already linked to an account';
-                    } else {
-                        error.signup = '';
-                        error.signupSuccess = response.data;
-                    }
-                }, function (error) {
-                    console.log(error);
-                });
-        } else {
-            error.signup = 'It seems that your data is incorrect';
+        if (!isValid) {
+            return;
         }
+        
+        $http.post('backend/signup.php', JSON.stringify(signupData))
+            .then(function (response) {
+                if (response.data == 'error') {
+                    error.signup = 'This email is already linked to an account';
+                } else {
+                    error.signup = '';
+                    error.signupSuccess = response.data;
+                }
+            }, function (error) {
+                console.log(error);
+            });
     };
     
     self.logout = function () {

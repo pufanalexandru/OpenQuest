@@ -36,25 +36,52 @@
                 <div class="form-group with-margin">
                     <label class="col-md-3 control-label" for="user">E-mail: </label>
                     <div class="col-md-9">
-                        <input type="email" class="form-control" id="user" ng-model="signupData.email" name="email" required>
-                        <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$touched" class="messages">
-                            <p ng-message="email">Please provide a valid email address</p>
-                            <p ng-message="required">You need to provide an email address</p>
+                        <input 
+                            class="form-control" 
+                            id="user" 
+                            name="email" 
+                            ng-model="signupData.email" 
+                            required
+                            type="email">
+                        <div 
+                            class="messages"
+                            ng-messages="signupForm.email.$error" 
+                            ng-show="signupForm.email.$touched || signupForm.$submitted">
+                            <div ng-messages-include="views/messages.html"></div>
                         </div>
                     </div>
                     <label class="col-md-3 control-label" for="password">Password: </label>
                     <div class="col-md-9">
-                        <input type="password" class="form-control" id="password" ng-model="signupData.password" name="password" ng-minlength="8" required>
-                        <div ng-messages="signupForm.password.$error" ng-if="signupForm.password.$touched" class="messages">
-                            <p ng-message="minlength">Your password must be at least 8 characters long</p>
-                            <p ng-message="required">You need to provide a password</p>
+                        <input 
+                            class="form-control" 
+                            id="password" 
+                            name="password" 
+                            ng-minlength="8" 
+                            ng-model="signupData.password" 
+                            required
+                            type="password">
+                        <div 
+                            class="messages"
+                            ng-messages="signupForm.password.$error" 
+                            ng-show="signupForm.password.$touched || signupForm.$submitted"> 
+                            <div ng-messages-include="views/messages.html"></div>
                         </div>
                     </div>
                     <label class="col-md-3 control-label" for="repeatPassword">Repeat password: </label>
                     <div class="col-md-9">
-                        <input type="password" class="form-control" id="repeatPassword" ng-model="signupData.repeatPassword" name="confirmPassword" required compare-to="signupData.password">
-                        <div ng-messages="signupForm.confirmPassword.$error" ng-if="signupForm.confirmPassword.$touched" class="messages">
-                            <div ng-message="compareTo">The passwords don't match</div>
+                        <input 
+                            class="form-control" 
+                            compare-to="signupData.password"
+                            id="repeatPassword" 
+                            name="confirmPassword" 
+                            ng-model="signupData.repeatPassword" 
+                            required 
+                            type="password"> 
+                        <div 
+                            class="messages"
+                            ng-messages="signupForm.confirmPassword.$error" 
+                            ng-show="signupForm.confirmPassword.$touched || signupForm.$submitted"> 
+                            <div ng-messages-include="views/messages.html"></div>
                         </div>
                     </div>
                     <div class="col-md-12">

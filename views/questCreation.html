@@ -1,6 +1,6 @@
 <oq-navbar title="Create new quest" icon="fa-plus"></oq-navbar>
 <div class="main">
-    <form class="form-horizontal" ng-submit="createQuest()" name="questCreation">
+    <form class="form-horizontal" ng-submit="createQuest(questCreation.$valid)" name="questCreation" novalidate>
         <div class="form-group creation">
             <label class="col-md-2 control-label" for="name">Name</label>
             <div class="col-md-10">
@@ -9,9 +9,14 @@
                     id="name" 
                     name="name" 
                     ng-model="quest.name" 
+                    ng-minlength="2"
+                    ng-maxlength="50"
                     placeholder="name of your quest" 
                     required
                     type="text"> 
+            </div>
+            <div class="col-md-10 col-md-offset-2 messages" ng-messages="questCreation.name.$error" ng-if="questCreation.name.$touched || questCreation.$submitted">
+                <div ng-messages-include="views/messages.html"></div>
             </div>
             
             <label class="col-md-2 control-label" for="description">Description</label>
