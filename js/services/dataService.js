@@ -15,11 +15,6 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
         return deferred.promise; 
     };
     
-    self.getData().then(function (response) {
-        self.categories = response.categories || [];
-        self.quests = response.quests || [];
-    });
-    
     self.createEntity = function (data, dataType, callback) {
         $http.post('backend/createEntity.php?token=' + localStorage.token + '&table=' + dataType, JSON.stringify(data))
             .then(function (response) {

@@ -15,7 +15,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             controller: 'mainCtrl',
             resolve: { 
                 getData: ['dataService', function (dataService) {
-                    return dataService.getData();
+                    return dataService.getData().then(function (response) {
+                        dataService.quests = response.quests || [];
+                        dataService.categories = response.categories || [];
+                    });
                 }]
             }
         })
