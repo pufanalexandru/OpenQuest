@@ -5,7 +5,7 @@
     </center>
     
     <div class="page-header"><h5>Description</h5></div>
-    <p class="description">{{quest.description}}</p>
+    <div class="description" ng-bind-html="quest.description | linky : '_blank'"></div>
     
     <div class="page-header"><h5>Details</h5></div>
     <p><strong>Status</strong>: {{quest.status}}</p>
