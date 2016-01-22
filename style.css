@@ -69,6 +69,15 @@ ul {
     color: #FFF;
 }
 
+.very-big {
+    color: #F8F8F8;
+    font-size: 7em;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 0 1px #000;
+    top: 100px;
+}
+
 .animate-if.ng-enter, .animate-if.ng-leave, .animate-show.ng-hide-add, .animate-show.ng-hide-remove {
     transition: all 0.5s;
 }
@@ -316,4 +325,10 @@ p.padded {
     .page-head { margin-left: -15px; }
     .show-menu { display: inline; }
     .creation { padding: 0; }
+    #quest-sidebar label { margin-left: 5px;}
+}
+
+@media (max-height: 750px) {
+    .login-wrapper, .jumbotron { margin-top: 10%; }
+    .very-big { font-size: 5em; top: 50px; }
 }
