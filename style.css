@@ -44,12 +44,12 @@ ul {
     border-right: none;
 }
 
-.btn-default:hover {
+.btn-default:not(:disabled):hover {
     border-color: #0D5091;
     border-top-color: #0B9BD3;
 }
 
-.btn-default:hover, .sidebar ul li:hover, .list-group-item:hover, #quest-sidebar.collapsed .panel-heading {
+.btn-default:not(:disabled):hover, .sidebar ul li:hover, .list-group-item:hover, #quest-sidebar.collapsed .panel-heading {
     background: linear-gradient(to bottom, #0B9BD3 0% ,#0D5091 100%);
     color: #FFF;
 }

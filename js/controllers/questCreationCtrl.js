@@ -28,11 +28,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         }
     });
     
-    $scope.createQuest = function (isValid) {
-        if (!isValid) {
-            return;
-        }
-        
+    $scope.createQuest = function () {
         if (!$scope.quest.category && !$scope.newCategory.name) {
             $scope.categoryError = true;
             return;
