@@ -20,7 +20,24 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
             .then(function (response) {
                 self[dataType].push(response.data);
                 callback();
-            })
+            });
+    };
+    
+    self.updateEntity = function (type, id, property, value) {
+        var data = {
+            type: type,
+            id: id,
+            column: property,
+            value: value
+        };
+        $http.post('backend/updateEntity.php?token=' + localStorage.token, JSON.stringify(data))
+            .then(function () {
+                self[type].forEach(function (item) {
+                    if (item.id === id) {
+                        item[property] = value;
+                    }
+                })
+            });
     };
 
 }]);

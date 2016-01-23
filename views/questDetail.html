@@ -14,15 +14,5 @@
     <p ng-if="quest.deadline !== null"><strong>Deadline</strong>: {{quest.deadline | date: 'dd MMM yyyy, HH:mm'}}</p>
     <p ng-if="quest.deadline !== null"><strong>Time left</strong>: {{calculateTime(quest.deadline)}}</p>
     
-    <div class="btn-group btn-group-justified" style="margin-top: 100px">
-        <div class="btn-group">
-            <button class="btn btn-default">Mark as completed</button>
-        </div>
-        <div class="btn-group">
-            <button class="btn btn-default"> Mark as failed</button>
-        </div>
-        <div class="btn-group">
-            <button class="btn btn-default">Delete</button>
-        </div>
-    </div>
+    <button-bar quest="quest"></button-bar>
 </div>

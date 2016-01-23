@@ -283,6 +283,10 @@ ul {
     white-space: pre-line;
 }
 
+.btn-group-justified {
+    margin-top: 100px;
+}
+
 /* QUESTS AND ADVENTURES CREATION */
 .creation input, .creation textarea, .creation #datetimepicker {
     margin-bottom: 20px;
