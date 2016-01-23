@@ -1,6 +1,7 @@
 app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'dataService', function ($scope, $window, $state,$stateParams, dataService) {
 
     $scope.quests = dataService.quests;
+    $scope.message = $scope.quests.length === 0 ? 'No quests created' : 'Choose a quest from the list';
         
     $scope.statuses = ['active'];
     $scope.include = function (status) {

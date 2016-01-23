@@ -28,7 +28,7 @@
             </ul>
         </div>
         <div id="quest-content" ng-class="{collapsed: collapsed}">
-            <h1 class="very-big" ng-if="state.current.name == 'main.quests'">Choose a quest from the list</h1>
+            <h1 class="very-big" ng-if="state.current.name == 'main.quests'">{{message}}</h1>
             <ui-view></ui-view>
         </div>
     </div>
