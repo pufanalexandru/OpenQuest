@@ -39,5 +39,21 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
                 })
             });
     };
+    
+    self.deleteEntity = function (type, id, callback) {
+        var data = {
+            type: type,
+            id: id,
+        };
+        $http.post('backend/deleteEntity.php?token=' + localStorage.token, JSON.stringify(data))
+            .then(function () {
+                self[type].forEach(function (item, index) {
+                    if (item.id === id) {
+                        self[type].splice(index, 1);
+                    }
+                })
+                callback();
+            });
+    }
 
 }]);
