@@ -1,4 +1,4 @@
-app.controller('questsCtrl', ['$scope', '$window', '$stateParams', 'dataService', function ($scope, $window, $stateParams, dataService) {
+app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'dataService', function ($scope, $window, $state,$stateParams, dataService) {
 
     $scope.quests = dataService.quests;
         
@@ -16,6 +16,7 @@ app.controller('questsCtrl', ['$scope', '$window', '$stateParams', 'dataService'
     }
     
     $scope.selectedQuest = $stateParams.id;
+    $scope.state = $state;
     
     $scope.calculateTime = function (deadline) {
         var now = new Date().getTime();
