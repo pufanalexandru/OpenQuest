@@ -2,7 +2,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
     
     // GET DATA
     this.getData = () => {
-        var deferred = $q.defer();
+        let deferred = $q.defer();
 
         $http.get('backend/getUserData.php?token=' + localStorage.token)
             .success((response) => {
@@ -26,7 +26,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
     
     // UPDATE ANYTHING
     this.updateEntity = (type, id, property, value) => {
-        var data = {
+        let data = {
             type: type,
             id: id,
             column: property,
@@ -48,7 +48,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
             return;
         }
 
-        var data = {
+        let data = {
             type: type,
             id: id,
         };

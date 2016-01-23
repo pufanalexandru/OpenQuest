@@ -38,7 +38,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
             $scope.quest.deadline = new Date($scope.quest.deadline).getTime();
         }
         
-        var questCreationCallback = () => {
+        let questCreationCallback = () => {
             $scope.createdQuest = true;
             $scope.quest = {};
         };

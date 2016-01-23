@@ -20,14 +20,14 @@ app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'da
     $scope.state = $state;
     
     $scope.calculateTime = (deadline) => {
-        var now = new Date().getTime();
+        let now = new Date().getTime();
 
         if (now > deadline) {
             return 'none';
         }
 
-        var timeLeft = Math.round(Math.abs((now - deadline) / 60000));
-        var units = 'minutes';
+        let timeLeft = Math.round(Math.abs((now - deadline) / 60000));
+        let units = 'minutes';
         if (timeLeft > 1440) {
             timeLeft /= 60 * 24;
             units = 'days';
