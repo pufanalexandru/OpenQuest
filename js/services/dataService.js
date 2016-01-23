@@ -1,6 +1,7 @@
 app.service('dataService', ['$http', '$q', function ($http, $q) {
     var self = this;
     
+    // GET DATA
     self.getData = function () {
         var deferred = $q.defer();
 
@@ -15,6 +16,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
         return deferred.promise; 
     };
     
+    // CREATE ANYTHING
     self.createEntity = function (data, dataType, callback) {
         $http.post('backend/createEntity.php?token=' + localStorage.token + '&table=' + dataType, JSON.stringify(data))
             .then(function (response) {
@@ -23,6 +25,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
             });
     };
     
+    // UPDATE ANYTHING
     self.updateEntity = function (type, id, property, value) {
         var data = {
             type: type,
@@ -40,7 +43,12 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
             });
     };
     
+    // DELETE ANYTHING
     self.deleteEntity = function (type, id, callback) {
+        if (!confirm('Are you sure?')) {
+            return;
+        }
+
         var data = {
             type: type,
             id: id,
@@ -54,6 +62,6 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
                 })
                 callback();
             });
-    }
+    };
 
 }]);
