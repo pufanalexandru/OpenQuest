@@ -20,7 +20,7 @@ app.controller('loginCtrl', ['$scope', '$uibModal', 'auth', function ($scope, $u
     $scope.login = auth.login;
     $scope.signup = auth.signup;    
     
-    $scope.openModal = function () {
+    $scope.openModal = () => {
         $uibModal.open({
             templateUrl: 'authModal.html',
             controller: 'loginCtrl'

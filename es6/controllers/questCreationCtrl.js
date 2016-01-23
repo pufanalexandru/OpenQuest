@@ -11,7 +11,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
             'show-weeks': false
         },
         timeOptions: { 'show-meridian': false },
-        open: function () {
+        open() {
             this.isOpen = true;
         }
     };    
@@ -19,7 +19,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
     $scope.quest = {};
     $scope.newCategory = {name: ''};
     
-    $scope.$watch('newCategory.name', function (newValue) {
+    $scope.$watch('newCategory.name', (newValue) => {
         if (newValue.length > 0) {
             $scope.quest.category = '';
             $scope.categoryError = false;
@@ -28,7 +28,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
         }
     });
     
-    $scope.createQuest = function () {
+    $scope.createQuest = () => {
         if (!$scope.quest.category && !$scope.newCategory.name) {
             $scope.categoryError = true;
             return;
@@ -38,7 +38,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
             $scope.quest.deadline = new Date($scope.quest.deadline).getTime();
         }
         
-        var questCreationCallback = function () {
+        var questCreationCallback = () => {
             $scope.createdQuest = true;
             $scope.quest = {};
         };
@@ -47,7 +47,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
             if ($scope.newCategory.background) {
                 $scope.newCategory.color = parseInt($scope.newCategory.background.replace('#', ''), 16) > 0xffffff / 2 ? '#000' : '#fff';
             }
-            dataService.createEntity($scope.newCategory, 'categories', function () {
+            dataService.createEntity($scope.newCategory, 'categories', () => {
                 $scope.quest.category = dataService.categories[dataService.categories.length - 1].id;
                 $scope.newCategory = {name: ''};
                 dataService.createEntity($scope.quest, 'quests', questCreationCallback);

@@ -4,7 +4,7 @@ app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'da
     $scope.message = $scope.quests.length === 0 ? 'No quests created' : 'Choose a quest from the list';
         
     $scope.statuses = ['active'];
-    $scope.include = function (status) {
+    $scope.include = (status) => {
         if ($scope.statuses.indexOf(status) != -1) {
             $scope.statuses.splice($scope.statuses.indexOf(status), 1);
         } else {
@@ -19,13 +19,13 @@ app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'da
     $scope.selectedQuest = $stateParams.id;
     $scope.state = $state;
     
-    $scope.calculateTime = function (deadline) {
+    $scope.calculateTime = (deadline) => {
         var now = new Date().getTime();
-        
+
         if (now > deadline) {
             return 'none';
         }
-        
+
         var timeLeft = Math.round(Math.abs((now - deadline) / 60000));
         var units = 'minutes';
         if (timeLeft > 1440) {
@@ -36,12 +36,6 @@ app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'da
             units = 'hours';
         }
         return Math.round(timeLeft) + ' ' + units;
-    }
+    };
     
-    $scope.snippet =
-    'Pretty text with some links:\n'+
-    'http://angularjs.org/,\n'+
-    'mailto:us@somewhere.org,\n'+
-    'another@somewhere.org,\n'+
-    'and one more: ftp://127.0.0.1/.';
 }]);

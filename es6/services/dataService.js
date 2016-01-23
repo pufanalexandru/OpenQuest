@@ -1,15 +1,14 @@
 app.service('dataService', ['$http', '$q', function ($http, $q) {
-    var self = this;
     
     // GET DATA
-    self.getData = function () {
+    this.getData = () => {
         var deferred = $q.defer();
 
         $http.get('backend/getUserData.php?token=' + localStorage.token)
-            .success(function (response) {
+            .success((response) => {
                 deferred.resolve(response);
             })
-            .error(function (error) {
+            .error((error) => {
                 deferred.reject(error);
             });
         
@@ -17,16 +16,16 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
     };
     
     // CREATE ANYTHING
-    self.createEntity = function (data, dataType, callback) {
+    this.createEntity = (data, dataType, callback) => {
         $http.post('backend/createEntity.php?token=' + localStorage.token + '&table=' + dataType, JSON.stringify(data))
-            .then(function (response) {
-                self[dataType].push(response.data);
+            .then(response => {
+                this[dataType].push(response.data);
                 callback();
-            });
+            })
     };
     
     // UPDATE ANYTHING
-    self.updateEntity = function (type, id, property, value) {
+    this.updateEntity = (type, id, property, value) => {
         var data = {
             type: type,
             id: id,
@@ -34,8 +33,8 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
             value: value
         };
         $http.post('backend/updateEntity.php?token=' + localStorage.token, JSON.stringify(data))
-            .then(function () {
-                self[type].forEach(function (item) {
+            .then(() => {
+                this[type].forEach(item => {
                     if (item.id === id) {
                         item[property] = value;
                     }
@@ -44,7 +43,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
     };
     
     // DELETE ANYTHING
-    self.deleteEntity = function (type, id, callback) {
+    this.deleteEntity = (type, id, callback) => {
         if (!confirm('Are you sure?')) {
             return;
         }
@@ -54,10 +53,10 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
             id: id,
         };
         $http.post('backend/deleteEntity.php?token=' + localStorage.token, JSON.stringify(data))
-            .then(function () {
-                self[type].forEach(function (item, index) {
+            .then(() => {
+                this[type].forEach((item, index) => {
                     if (item.id === id) {
-                        self[type].splice(index, 1);
+                        this[type].splice(index, 1);
                     }
                 })
                 callback();
