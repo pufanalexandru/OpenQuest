@@ -4,7 +4,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
     this.getData = () => {
         let deferred = $q.defer();
 
-        $http.get('backend/getUserData.php?token=' + localStorage.token)
+        $http.get(`backend/getUserData.php?token=${localStorage.token}`)
             .success((response) => {
                 deferred.resolve(response);
             })
@@ -17,7 +17,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
     
     // CREATE ANYTHING
     this.createEntity = (data, dataType, callback) => {
-        $http.post('backend/createEntity.php?token=' + localStorage.token + '&table=' + dataType, JSON.stringify(data))
+        $http.post(`backend/createEntity.php?token=${localStorage.token}&table=${dataType}`, JSON.stringify(data))
             .then(response => {
                 this[dataType].push(response.data);
                 callback();
@@ -32,7 +32,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
             column: property,
             value: value
         };
-        $http.post('backend/updateEntity.php?token=' + localStorage.token, JSON.stringify(data))
+        $http.post(`backend/updateEntity.php?token=${localStorage.token}`, JSON.stringify(data))
             .then(() => {
                 this[type].forEach(item => {
                     if (item.id === id) {
@@ -52,7 +52,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
             type: type,
             id: id,
         };
-        $http.post('backend/deleteEntity.php?token=' + localStorage.token, JSON.stringify(data))
+        $http.post(`backend/deleteEntity.php?token=${localStorage.token}`, JSON.stringify(data))
             .then(() => {
                 this[type].forEach((item, index) => {
                     if (item.id === id) {
