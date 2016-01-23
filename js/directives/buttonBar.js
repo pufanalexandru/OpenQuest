@@ -1,4 +1,4 @@
-app.directive('buttonBar', function(dataService) {
+app.directive('buttonBar', ['dataService', function(dataService) {
     return {
         templateUrl: 'views/directives/buttonBar.html',
         scope: {
@@ -8,4 +8,4 @@ app.directive('buttonBar', function(dataService) {
             scope.update = dataService.updateEntity;
         }
     };
-});
+}]);
