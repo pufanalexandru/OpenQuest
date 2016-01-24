@@ -26,12 +26,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
     
     // UPDATE ANYTHING
     this.updateEntity = (type, id, property, value) => {
-        let data = {
-            type: type,
-            id: id,
-            column: property,
-            value: value
-        };
+        let data = { type, id, property, value };
         $http.post(`backend/updateEntity.php?token=${localStorage.token}`, JSON.stringify(data))
             .then(() => {
                 this[type].forEach(item => {
@@ -48,10 +43,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
             return;
         }
 
-        let data = {
-            type: type,
-            id: id,
-        };
+        let data = { type, id: id };
         $http.post(`backend/deleteEntity.php?token=${localStorage.token}`, JSON.stringify(data))
             .then(() => {
                 this[type].forEach((item, index) => {
