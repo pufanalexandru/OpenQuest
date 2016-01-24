@@ -14,5 +14,5 @@
     <p ng-if="quest.deadline !== null"><strong>Deadline</strong>: {{quest.deadline | date: 'dd MMM yyyy, HH:mm'}}</p>
     <p ng-if="quest.deadline !== null"><strong>Time left</strong>: {{calculateTime(quest.deadline)}}</p>
     
-    <button-bar quest="quest"></button-bar>
+    <oq-button-bar quest="quest"></oq-button-bar>
 </div>

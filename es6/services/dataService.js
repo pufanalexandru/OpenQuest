@@ -43,7 +43,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
             return;
         }
 
-        let data = { type, id: id };
+        let data = { type, id };
         $http.post(`backend/deleteEntity.php?token=${localStorage.token}`, JSON.stringify(data))
             .then(() => {
                 this[type].forEach((item, index) => {

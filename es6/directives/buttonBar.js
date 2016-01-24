@@ -1,4 +1,4 @@
-app.directive('buttonBar', ['$state', 'dataService', function($state, dataService) {
+app.directive('oqButtonBar', ['$state', 'dataService', function($state, dataService) {
     return {
         templateUrl: 'views/directives/buttonBar.html',
         scope: {
