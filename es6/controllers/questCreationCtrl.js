@@ -19,7 +19,7 @@ app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function 
     $scope.quest = {};
     $scope.newCategory = {name: ''};
     
-    $scope.$watch('newCategory.name', (newValue) => {
+    $scope.$watch('newCategory.name', newValue => {
         if (newValue.length > 0) {
             $scope.quest.category = '';
             $scope.categoryError = false;

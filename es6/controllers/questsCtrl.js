@@ -19,7 +19,7 @@ app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'da
     $scope.selectedQuest = $stateParams.id;
     $scope.state = $state;
     
-    $scope.calculateTime = (deadline) => {
+    $scope.calculateTime = deadline => {
         let now = new Date().getTime();
 
         if (now > deadline) {

@@ -4,8 +4,8 @@ app.directive('buttonBar', ['$state', 'dataService', function($state, dataServic
         scope: {
             quest: '='
         },
-        link: function (scope) {
-            scope.deleteCallback = function () {
+        link: scope => {
+            scope.deleteCallback = () => {
                 $state.go('^');
             };
             

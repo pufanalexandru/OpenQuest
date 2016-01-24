@@ -16,15 +16,15 @@ app.service('auth', ['$http', '$state', function ($http, $state) {
     
     this.login = (loginData, error) => {
         $http.post('backend/login.php', JSON.stringify(loginData))
-            .then((response) => {
+            .then(response => {
                 if (response.data.indexOf('Ooops') != -1) {
                     error.login = response.data;
                 } else {
                     localStorage.token = response.data;
                     $state.go('main.dashboard');
                 }
-            }, (error) => {
-                console.error(error);
+            }, err => {
+                console.error(err);
             });
     };
     
@@ -34,15 +34,15 @@ app.service('auth', ['$http', '$state', function ($http, $state) {
         }
         
         $http.post('backend/signup.php', JSON.stringify(signupData))
-            .then((response) => {
+            .then(response => {
                 if (response.data == 'error') {
                     error.signup = 'This email is already linked to an account';
                 } else {
                     error.signup = '';
                     error.signupSuccess = response.data;
                 }
-            }, (error) => {
-                console.log(error);
+            }, err => {
+                console.log(er);
             });
     };
     
@@ -51,8 +51,8 @@ app.service('auth', ['$http', '$state', function ($http, $state) {
             .then(() => {
                 localStorage.clear();
                 $state.go('auth');
-            }, (error) => {
-                console.error(error);
+            }, err => {
+                console.error(err);
             });
     };
     

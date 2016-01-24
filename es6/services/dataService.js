@@ -5,10 +5,10 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
         let deferred = $q.defer();
 
         $http.get(`backend/getUserData.php?token=${localStorage.token}`)
-            .success((response) => {
+            .success(response => {
                 deferred.resolve(response);
             })
-            .error((error) => {
+            .error(error => {
                 deferred.reject(error);
             });
         
