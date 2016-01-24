@@ -11,7 +11,7 @@ h1, h2, h3, h4, .btn-default {
     font-family: 'Raleway', sans-serif;
 }
 
-a, .sidebar li, #quest-sidebar i, .list-group-item {
+a, .sidebar li, #quest-sidebar i, .list-group-item, .editable {
     cursor: pointer;
 }
 
@@ -76,6 +76,10 @@ ul {
     text-align: center;
     text-shadow: 0 0 1px #000;
     top: 100px;
+}
+
+.editable {
+    margin-left: 5px;
 }
 
 .animate-if.ng-enter, .animate-if.ng-leave, .animate-show.ng-hide-add, .animate-show.ng-hide-remove {

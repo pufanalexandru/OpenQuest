@@ -1,18 +1,28 @@
 <div ng-repeat="quest in quests | filter: {id: selectedQuest}">
-    <center>
-        <h1>{{quest.name}}</h1>
+    <center >
+        <div oq-editable>
+            <h1>{{quest.name}}</h1>
+        </div>
         <h3 oq-label></h3>
     </center>
     
     <div class="page-header"><h5>Description</h5></div>
-    <div class="description" ng-bind-html="quest.description | linky : '_blank'"></div>
+    <div oq-editable class="description" ng-bind-html="quest.description | linky : '_blank'"></div>
     
     <div class="page-header"><h5>Details</h5></div>
     <p><strong>Status</strong>: {{quest.status}}</p>
-    <p><strong>Category</strong>: <oq-label></oq-label></p>
-    <p ng-if="quest.adventure !== null"><strong>Adventure</strong>: {{quest.adventure}}</p>
-    <p ng-if="quest.deadline !== null"><strong>Deadline</strong>: {{quest.deadline | date: 'dd MMM yyyy, HH:mm'}}</p>
-    <p ng-if="quest.deadline !== null"><strong>Time left</strong>: {{calculateTime(quest.deadline)}}</p>
+    <p oq-editable>
+        <strong>Category</strong>: <oq-label></oq-label>
+    </p>
+    <p oq-editable ng-if="quest.adventure !== null">
+        <strong>Adventure</strong>: {{quest.adventure}}
+    </p>
+    <p oq-editable ng-if="quest.deadline !== null">
+        <strong>Deadline</strong>: {{quest.deadline | date: 'dd MMM yyyy, HH:mm'}}
+    </p>
+    <p ng-if="quest.deadline !== null">
+        <strong>Time left</strong>: {{calculateTime(quest.deadline)}}
+    </p>
     
     <oq-button-bar quest="quest"></oq-button-bar>
 </div>
