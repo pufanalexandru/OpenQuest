@@ -7,7 +7,7 @@ app.service('auth', ['$http', '$state', function ($http, $state) {
         $http.post('backend/checkToken.php', localStorage.token)
             .then((response) => {
                 if (response.data == 'authorized') {
-                    console.log('you\'re logged in');
+                    console.log("you're logged in");
                 } else {
                     $state.go('auth');
                 }
@@ -17,7 +17,7 @@ app.service('auth', ['$http', '$state', function ($http, $state) {
     this.login = (loginData, error) => {
         $http.post('backend/login.php', JSON.stringify(loginData))
             .then(response => {
-                if (response.data.indexOf('Ooops') != -1) {
+                if (response.data.includes('Ooops')) {
                     error.login = response.data;
                 } else {
                     localStorage.token = response.data;

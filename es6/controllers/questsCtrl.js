@@ -4,7 +4,7 @@ app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'da
     $scope.message = $scope.quests.length === 0 ? 'No quests created' : 'Choose a quest from the list';
         
     $scope.statuses = ['active'];
-    $scope.include = (status) => {
+    $scope.include = status => {
         if ($scope.statuses.indexOf(status) != -1) {
             $scope.statuses.splice($scope.statuses.indexOf(status), 1);
         } else {
