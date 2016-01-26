@@ -11,7 +11,7 @@ h1, h2, h3, h4, .btn-default {
     font-family: 'Raleway', sans-serif;
 }
 
-a, .sidebar li, #quest-sidebar i, .list-group-item, .editable {
+a, em, .sidebar li, #quest-sidebar i, .list-group-item {
     cursor: pointer;
 }
 
@@ -61,7 +61,10 @@ ul {
 
 .messages {
     color: #F00;
-    margin-top: -5px;
+}
+
+.centered, .alert-success {
+    text-align: center;
 }
 
 .login-form, .jumbotron, .sidebar ul li.active {
@@ -73,13 +76,12 @@ ul {
     color: #F8F8F8;
     font-size: 7em;
     position: relative;
-    text-align: center;
     text-shadow: 0 0 1px #000;
     top: 100px;
 }
 
-.editable {
-    margin-left: 5px;
+button.input-button {
+    margin-left: -5px;
 }
 
 .animate-if.ng-enter, .animate-if.ng-leave, .animate-show.ng-hide-add, .animate-show.ng-hide-remove {
@@ -112,7 +114,6 @@ ul {
 
 .login-form h1 {
     margin: -30px 0 40px;
-    text-align: center;
     text-shadow: 4px 4px 1px #000;
 }
 
@@ -313,7 +314,6 @@ p.padded {
 }
 
 .alert-success {
-    text-align: center;
     margin-top: 20px;
 }
 

@@ -1,9 +1,14 @@
 app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'dataService', function ($scope, $window, $state,$stateParams, dataService) {
 
+    //variables
     $scope.quests = dataService.quests;
     $scope.message = $scope.quests.length === 0 ? 'No quests created' : 'Choose a quest from the list';
-        
     $scope.statuses = ['active'];
+    $scope.edit = { prop: null, on: null };
+    $scope.selectedQuest = $stateParams.id;
+    $scope.state = $state;
+    
+    //functions
     $scope.include = status => {
         if ($scope.statuses.indexOf(status) != -1) {
             $scope.statuses.splice($scope.statuses.indexOf(status), 1);
@@ -11,13 +16,6 @@ app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'da
             $scope.statuses.push(status);
         }
     };       
-    
-    if ($window.innerWidth < 580) {
-        $scope.collapsed = true;
-    }
-    
-    $scope.selectedQuest = $stateParams.id;
-    $scope.state = $state;
     
     $scope.calculateTime = deadline => {
         let now = new Date().getTime();
@@ -37,5 +35,19 @@ app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'da
         }
         return Math.round(timeLeft) + ' ' + units;
     };
+    
+    $scope.updateEntity = (type, id, property, value, isValid) => {
+        if (!isValid) {
+            $scope.edit.prop = false;
+            return;
+        }
+        
+        dataService.updateEntity(type, id, property, value, () => { $scope.edit.prop = false; });
+    };
+    
+    //logic
+    if ($window.innerWidth < 580) {
+        $scope.collapsed = true;
+    }
     
 }]);

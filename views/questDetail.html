@@ -1,28 +1,61 @@
 <div ng-repeat="quest in quests | filter: {id: selectedQuest}">
-    <center >
-        <div oq-editable>
-            <h1>{{quest.name}}</h1>
-        </div>
-        <h3 oq-label></h3>
-    </center>
+    <!-- TITLE -->
+    <div class="centered" ng-mouseover="edit.on = 'title'" ng-mouseout="edit.on = false">
+        <h1 ng-if="edit.prop != 'title'">{{quest.name}}</h1>
+        <em ng-show="edit.on == 'title' && !edit.prop" ng-click="edit.prop = 'title'">edit&nbsp;
+            <i class="fa fa-pencil-square-o"></i>
+        </em>
+        <form 
+            name="titleEdit" 
+            ng-if="edit.prop == 'title'" 
+            ng-submit="updateEntity('quests', quest.id, 'name', value, titleEdit.$valid)"
+            novalidate> 
+            <input 
+                name="title" 
+                ng-maxlength="50" 
+                ng-minlength="2"
+                ng-model="value" 
+                placeholder="{{quest.name}}"
+                required 
+                type="text"> 
+            <button class="input-button">
+                <i class="fa" ng-class="{'fa-check': titleEdit.$valid, 'fa-times': !titleEdit.$valid}"></i>
+            </button>
+            <div class="messages" ng-messages="titleEdit.title.$error">
+                <div ng-messages-include="views/messages.html"></div>
+            </div>
+        </form>
+    </div> <!-- /title -->
     
+    <!-- DESCRIPTION -->
     <div class="page-header"><h5>Description</h5></div>
-    <div oq-editable class="description" ng-bind-html="quest.description | linky : '_blank'"></div>
+    <div ng-mouseover="editIcon = 'description'" ng-mouseout="editIcon = false">
+        <div class="description" ng-bind-html="quest.description | linky : '_blank'"></div>
+        <a ng-show="editIcon === 'description'"><em>edit <i class="fa fa-pencil-square-o"></i></em></a>
+    </div>
     
     <div class="page-header"><h5>Details</h5></div>
-    <p><strong>Status</strong>: {{quest.status}}</p>
-    <p oq-editable>
+    
+    <p ng-mouseover="editIcon = 'category'" ng-mouseout="editIcon = false">
         <strong>Category</strong>: <oq-label></oq-label>
+        <a ng-show="editIcon === 'category'"><em>edit <i class="fa fa-pencil-square-o"></i></em></a>
     </p>
-    <p oq-editable ng-if="quest.adventure !== null">
-        <strong>Adventure</strong>: {{quest.adventure}}
+    
+    <p ng-mouseover="editIcon = 'adventure'" ng-mouseout="editIcon = false">
+        <strong>Adventure</strong>: {{quest.adventure || 'none'}}
+        <a ng-show="editIcon === 'adventure'"><em>edit <i class="fa fa-pencil-square-o"></i></em></a>
     </p>
-    <p oq-editable ng-if="quest.deadline !== null">
-        <strong>Deadline</strong>: {{quest.deadline | date: 'dd MMM yyyy, HH:mm'}}
+    
+    <p ng-mouseover="editIcon = 'deadline'" ng-mouseout="editIcon = false">
+        <strong>Deadline</strong>: {{(quest.deadline | date: 'dd MMM yyyy, HH:mm') || 'none'}}
+        <a ng-show="editIcon === 'deadline'"><em>edit <i class="fa fa-pencil-square-o"></i></em></a>
     </p>
+    
     <p ng-if="quest.deadline !== null">
         <strong>Time left</strong>: {{calculateTime(quest.deadline)}}
     </p>
+    
+    <p><strong>Status</strong>: {{quest.status}}</p>
     
     <oq-button-bar quest="quest"></oq-button-bar>
 </div>

@@ -25,7 +25,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
     };
     
     // UPDATE ANYTHING
-    this.updateEntity = (type, id, property, value) => {
+    this.updateEntity = (type, id, property, value, callback) => {
         let data = { type, id, property, value };
         $http.post(`backend/updateEntity.php?token=${localStorage.token}`, JSON.stringify(data))
             .then(() => {
@@ -34,6 +34,9 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
                         item[property] = value;
                     }
                 })
+                if (callback) {
+                    callback();
+                }
             });
     };
     
