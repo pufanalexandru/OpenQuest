@@ -36,7 +36,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         })
         
         .state('main.quests.questDetail', {
-            url: '/quests/:id',
+            url: '/:id',
             templateUrl: 'views/questDetail.html',
             controller: 'questsCtrl'
         })
