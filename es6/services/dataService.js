@@ -34,9 +34,7 @@ app.service('dataService', ['$http', '$q', function ($http, $q) {
                         item[property] = value;
                     }
                 })
-                if (callback) {
-                    callback();
-                }
+                callback && callback();
             });
     };
     
