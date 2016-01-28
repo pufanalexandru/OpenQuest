@@ -29,9 +29,30 @@
     
     <!-- DESCRIPTION -->
     <div class="page-header"><h5>Description</h5></div>
-    <div ng-mouseover="editIcon = 'description'" ng-mouseout="editIcon = false">
-        <div class="description" ng-bind-html="quest.description | linky : '_blank'"></div>
-        <a ng-show="editIcon === 'description'"><em>edit <i class="fa fa-pencil-square-o"></i></em></a>
+    <div ng-mouseover="edit.on = 'description'" ng-mouseout="edit.on = false">
+        <div 
+            class="description" 
+            ng-bind-html="quest.description | linky : '_blank'"
+            ng-if="edit.prop != 'description'">
+        </div>
+        <em 
+            ng-click="edit.prop = 'description'"
+            ng-show="(edit.on === 'description' && !edit.prop) || quest.description.length === 0">edit&nbsp; 
+            <i class="fa fa-pencil-square-o"></i>
+        </em>
+        <form
+            name="descriptionEdit"
+            ng-if="edit.prop == 'description'"
+            ng-submit="updateEntity('quests', quest.id, 'description', value)">
+            <textarea 
+                class="form-control bottom-margin"
+                ng-init="value = quest.description"
+                ng-model="value" 
+                rows="5">
+            </textarea>
+            <button><i class="fa fa-check"></i></button>
+            <button><i class="fa fa-times" ng-click="edit.prop = false"></i></button>
+        </form>
     </div>
     
     <div class="page-header"><h5>Details</h5></div>

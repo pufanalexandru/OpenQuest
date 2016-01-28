@@ -292,6 +292,10 @@ button.input-button {
     margin-top: 100px;
 }
 
+textarea.bottom-margin {
+    margin-bottom: 5px;
+}
+
 /* QUESTS AND ADVENTURES CREATION */
 .creation input, .creation textarea, .creation #datetimepicker {
     margin-bottom: 20px;

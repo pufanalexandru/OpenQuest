@@ -37,7 +37,7 @@ app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'da
     };
     
     $scope.updateEntity = (type, id, property, value, isValid) => {
-        if (!isValid) {
+        if (isValid !== undefined && !isValid) {
             $scope.edit.prop = false;
             return;
         }
