@@ -23,7 +23,7 @@
             <ul class="list-group animate-show" ng-show="!collapsed">
                 <li class="list-group-item animate-if" ui-sref="main.quests.questDetail({id: quest.id})" ng-repeat="quest in quests | filter: query | questStatus: statuses | orderBy: order">
                     {{quest.name}} &nbsp; 
-                    <oq-label></oq-label>
+                    <oq-label quest="quest"></oq-label>
                 </li>
             </ul>
         </div>

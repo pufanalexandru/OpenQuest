@@ -8,7 +8,7 @@ html, body {
 }
 
 h1, h2, h3, h4, .btn-default {
-    font-family: 'Raleway', sans-serif;
+    font-family: Raleway, sans-serif;
 }
 
 a, em, .sidebar li, #quest-sidebar i, .list-group-item {
@@ -32,7 +32,7 @@ ul {
     background: rgba(0,0,0,0);
     border: 1px solid #000;
     border-radius: 0;
-    box-shadow: 2px 0px 2px #000;
+    box-shadow: 2px 0 2px #000;
     transition: color 1s;
 }
 

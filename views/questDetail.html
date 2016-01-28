@@ -37,7 +37,7 @@
         </div>
         <em 
             ng-click="edit.prop = 'description'"
-            ng-show="(edit.on === 'description' && !edit.prop) || quest.description.length === 0">edit&nbsp; 
+            ng-show="(edit.on === 'description' && !edit.prop) || !quest.description">edit&nbsp; 
             <i class="fa fa-pencil-square-o"></i>
         </em>
         <form
@@ -50,17 +50,26 @@
                 ng-model="value" 
                 rows="5">
             </textarea>
-            <button><i class="fa fa-check"></i></button>
-            <button><i class="fa fa-times" ng-click="edit.prop = false"></i></button>
+            <button type="submit"><i class="fa fa-check"></i></button>
+            <button type="button" ng-click="edit.prop = false"><i class="fa fa-times"></i></button>
         </form>
-    </div>
+    </div> <!-- /description -->
     
     <div class="page-header"><h5>Details</h5></div>
     
-    <p ng-mouseover="editIcon = 'category'" ng-mouseout="editIcon = false">
-        <strong>Category</strong>: <oq-label></oq-label>
-        <a ng-show="editIcon === 'category'"><em>edit <i class="fa fa-pencil-square-o"></i></em></a>
-    </p>
+    <!-- CATEGORY -->
+    <div ng-mouseover="edit.on = 'category'" ng-mouseout="edit.on = false">
+        <strong>Category</strong>: <oq-label quest="quest" ng-if="edit.prop != 'category'"></oq-label>
+        <em ng-show="edit.on === 'category' && !edit.prop" ng-click="edit.prop = 'category'">edit&nbsp; 
+            <i class="fa fa-pencil-square-o"></i>
+        </em>
+        <select
+            ng-change="updateEntity('quests', quest.id, 'category', value)"
+            ng-if="edit.prop == 'category'"
+            ng-model="value"
+            ng-options="category.id as category.name for category in categories">
+        </select>
+    </div> <!-- /category -->
     
     <p ng-mouseover="editIcon = 'adventure'" ng-mouseout="editIcon = false">
         <strong>Adventure</strong>: {{quest.adventure || 'none'}}
@@ -77,6 +86,5 @@
     </p>
     
     <p><strong>Status</strong>: {{quest.status}}</p>
-    
     <oq-button-bar quest="quest"></oq-button-bar>
 </div>

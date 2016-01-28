@@ -5,12 +5,8 @@ app.service('auth', ['$http', '$state', function ($http, $state) {
             $state.go('auth');
         }
         $http.post('backend/checkToken.php', localStorage.token)
-            .then((response) => {
-                if (response.data == 'authorized') {
-                    console.log("you're logged in");
-                } else {
-                    $state.go('auth');
-                }
+            .then(response => {
+                response.data == 'authorized' || $state.go('auth');
             });
     };
     
