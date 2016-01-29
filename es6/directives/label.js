@@ -1,4 +1,4 @@
-app.directive('oqLabel', function (dataService) {
+app.directive('oqLabel', ['dataService', function (dataService) {
     return {
         templateUrl: 'views/directives/label.html',
         scope: {
@@ -14,4 +14,4 @@ app.directive('oqLabel', function (dataService) {
             }, true);
         }
     };
-});
+}]);
