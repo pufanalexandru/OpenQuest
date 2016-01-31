@@ -1,5 +1,5 @@
 app.controller('loginCtrl', ['$scope', '$uibModal', 'auth', function ($scope, $uibModal, auth) {   
-     
+
     $scope.loginData = {
         email: '',
         password: ''
@@ -12,9 +12,7 @@ app.controller('loginCtrl', ['$scope', '$uibModal', 'auth', function ($scope, $u
     };
   
     $scope.errors = {
-        login: '',
-        signup: '',
-        signupSuccess: ''
+        login: ''
     };
     
     $scope.login = auth.login;
@@ -23,8 +21,16 @@ app.controller('loginCtrl', ['$scope', '$uibModal', 'auth', function ($scope, $u
     $scope.openModal = () => {
         $uibModal.open({
             templateUrl: 'authModal.html',
-            controller: 'loginCtrl'
+            controller: ['$scope', '$uibModalInstance', function ($scope, $uibModalInstance) {
+                $scope.close = () => {
+                    $uibModalInstance.dismiss();
+                }
+                $scope.signup = auth.signup;
+                 $scope.errors = {
+                    signup: '',
+                    signupSuccess: ''
+                };   
+            }]
         });
-    };
-    
+    }; 
 }]);

@@ -27,12 +27,12 @@
 
 <script type="text/ng-template" id="authModal.html">
     <div class="modal-header">
-        <button class="close" type="button" data-dismiss="modal"><span>&times;</span></button>
+        <button class="close" ng-click="close()"><span>&times;</span></button>
         <h4 class="modal-title">New account</h4>
     </div>
     <div class="modal-body">
         <div class="row">
-            <form class="form-horizontal" ng-submit="signup(signupData, errors, signupForm.$valid)" name="signupForm" novalidate>
+            <form class="form-horizontal" name="signupForm" novalidate ng-submit="signup(signupData, errors, signupForm.$valid)" >
                 <div class="form-group with-margin">
                     <label class="col-md-3 control-label" for="user">E-mail: </label>
                     <div class="col-md-9">
@@ -40,9 +40,9 @@
                             class="form-control" 
                             id="user" 
                             name="email" 
-                            ng-model="signupData.email" 
                             required
-                            type="email">
+                            type="email"
+                            ng-model="signupData.email">
                         <div 
                             class="messages"
                             ng-messages="signupForm.email.$error" 
@@ -56,10 +56,10 @@
                             class="form-control" 
                             id="password" 
                             name="password" 
-                            ng-minlength="8" 
-                            ng-model="signupData.password" 
                             required
-                            type="password">
+                            type="password"
+                            ng-minlength="8" 
+                            ng-model="signupData.password"> 
                         <div 
                             class="messages"
                             ng-messages="signupForm.password.$error" 
@@ -71,12 +71,12 @@
                     <div class="col-md-9">
                         <input 
                             class="form-control" 
-                            compare-to="signupData.password"
                             id="repeatPassword" 
                             name="confirmPassword" 
-                            ng-model="signupData.repeatPassword" 
                             required 
-                            type="password"> 
+                            type="password"
+                            compare-to="signupData.password"
+                            ng-model="signupData.repeatPassword"> 
                         <div 
                             class="messages"
                             ng-messages="signupForm.confirmPassword.$error" 
