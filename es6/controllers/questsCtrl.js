@@ -45,7 +45,7 @@ app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'da
         }
         
         if (property == 'deadline') {
-            value = new Date(value).getTime();
+            value = value === undefined ? null : new Date(value).getTime();
         }
         
         dataService.updateEntity(type, id, property, value, () => { $scope.edit.prop = false; });
