@@ -58,7 +58,7 @@
     <div class="page-header"><h5>Details</h5></div>
     
     <!-- CATEGORY -->
-    <div ng-mouseover="edit.on = 'category'" ng-mouseout="edit.on = false">
+    <div class="bottom-margin" ng-mouseover="edit.on = 'category'" ng-mouseout="edit.on = false">
         <strong>Category</strong>: <oq-label quest="quest" ng-if="edit.prop != 'category'"></oq-label>
         <em ng-show="edit.on === 'category' && !edit.prop" ng-click="edit.prop = 'category'">edit&nbsp; 
             <i class="fa fa-pencil-square-o"></i>
@@ -71,20 +71,44 @@
         </select>
     </div> <!-- /category -->
     
-    <p ng-mouseover="editIcon = 'adventure'" ng-mouseout="editIcon = false">
+    <!-- ADVENTURE -->
+    <div class="bottom-margin" ng-mouseover="editIcon = 'adventure'" ng-mouseout="editIcon = false">
         <strong>Adventure</strong>: {{quest.adventure || 'none'}}
-        <a ng-show="editIcon === 'adventure'"><em>edit <i class="fa fa-pencil-square-o"></i></em></a>
-    </p>
+        <!--<a ng-show="editIcon === 'adventure'"><em>edit <i class="fa fa-pencil-square-o"></i></em></a>-->
+    </div> <!-- /adventure -->
     
-    <p ng-mouseover="editIcon = 'deadline'" ng-mouseout="editIcon = false">
-        <strong>Deadline</strong>: {{(quest.deadline | date: 'dd MMM yyyy, HH:mm') || 'none'}}
-        <a ng-show="editIcon === 'deadline'"><em>edit <i class="fa fa-pencil-square-o"></i></em></a>
-    </p>
+    <!-- DEADLINE -->
+    <div class="bottom-margin" ng-mouseover="edit.on = 'deadline'" ng-mouseout="edit.on = false">
+        <strong>Deadline</strong>: 
+        <span ng-if="edit.prop != 'deadline'">{{(quest.deadline | date: 'dd MMM yyyy, HH:mm') || 'none'}}</span>
+        <em ng-show="edit.on === 'deadline' && !edit.prop" ng-click="edit.prop = 'deadline'">edit&nbsp; 
+            <i class="fa fa-pencil-square-o"></i>
+        </em>
+        <div ng-if="edit.prop === 'deadline'" class="inline">
+            <input 
+                type="text" 
+                datetime-picker="dd MMM yyyy HH:mm"
+                ng-model="value" 
+                is-open="datePicker.isOpen" 
+                datepicker-options="datePicker.options"
+                timepicker-options="datePicker.timeOptions"
+                min-date="datePicker.min">
+            <button class="input-button" ng-click="datePicker.open()">
+                <i class="fa fa-calendar"></i>
+            </button>
+            <button class="input-button" ng-click="updateEntity('quests', quest.id, 'deadline', value)">
+                <i class="fa fa-check"></i>
+            </button>
+            <button class="input-button" ng-click="edit.prop = false">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+    </div> <!-- /deadline -->
     
-    <p ng-if="quest.deadline !== null">
+    <div class="bottom-margin" ng-if="quest.deadline !== null">
         <strong>Time left</strong>: {{calculateTime(quest.deadline)}}
-    </p>
+    </div>
     
-    <p><strong>Status</strong>: {{quest.status}}</p>
+    <div><strong>Status</strong>: {{quest.status}}</div>
     <oq-button-bar quest="quest"></oq-button-bar>
 </div>

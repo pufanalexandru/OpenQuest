@@ -1,20 +1,9 @@
-app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', function ($scope, $http, dataService) {
+app.controller('questCreationCtrl', ['$scope', '$http', 'dataService', 'datePickerService', function ($scope, $http, dataService, datePickerService) {
 
     $scope.categories = dataService.categories;
     $scope.adventures = [];
         
-    $scope.datePicker = {
-        isOpen: false,
-        min: new Date(),
-        options: {
-            'startingDay': 1,
-            'show-weeks': false
-        },
-        timeOptions: { 'show-meridian': false },
-        open() {
-            this.isOpen = true;
-        }
-    };    
+    $scope.datePicker = datePickerService;
         
     $scope.quest = {};
     $scope.newCategory = {name: ''};

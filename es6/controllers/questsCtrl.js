@@ -1,4 +1,4 @@
-app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'dataService', function ($scope, $window, $state,$stateParams, dataService) {
+app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'dataService', 'datePickerService', function ($scope, $window, $state,$stateParams, dataService, datePickerService) {
 
     //variables
     $scope.quests = dataService.quests;
@@ -8,6 +8,7 @@ app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'da
     $scope.edit = { prop: null, on: null };
     $scope.selectedQuest = $stateParams.id;
     $scope.state = $state;
+    $scope.datePicker = datePickerService;
     
     //functions
     $scope.include = status => {
@@ -41,6 +42,10 @@ app.controller('questsCtrl', ['$scope', '$window', '$state', '$stateParams', 'da
         if (isValid !== undefined && !isValid) {
             $scope.edit.prop = false;
             return;
+        }
+        
+        if (property == 'deadline') {
+            value = new Date(value).getTime();
         }
         
         dataService.updateEntity(type, id, property, value, () => { $scope.edit.prop = false; });

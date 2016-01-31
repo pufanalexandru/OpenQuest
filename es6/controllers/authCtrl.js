@@ -26,7 +26,7 @@ app.controller('loginCtrl', ['$scope', '$uibModal', 'auth', function ($scope, $u
                     $uibModalInstance.dismiss();
                 }
                 $scope.signup = auth.signup;
-                 $scope.errors = {
+                $scope.errors = {
                     signup: '',
                     signupSuccess: ''
                 };   

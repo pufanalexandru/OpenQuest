@@ -292,8 +292,16 @@ button.input-button {
     margin-top: 100px;
 }
 
-textarea.bottom-margin {
+.bottom-margin {
     margin-bottom: 5px;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline .dropdown-menu {
+    top: initial;
 }
 
 /* QUESTS AND ADVENTURES CREATION */
