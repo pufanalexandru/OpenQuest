@@ -11,7 +11,7 @@ h1, h2, h3, h4, .btn-default {
     font-family: Raleway, sans-serif;
 }
 
-a, em, .sidebar li, #quest-sidebar i, .list-group-item {
+a, em, .sidebar li, #quest-sidebar i, .list-group-item, .fa-pencil-square-o {
     cursor: pointer;
 }
 
@@ -294,6 +294,10 @@ button.input-button {
 
 .bottom-margin {
     margin-bottom: 5px;
+}
+
+.left-margin {
+    margin-left: 5px;
 }
 
 .inline {
